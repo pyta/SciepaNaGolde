@@ -1,0 +1,23 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" xmlns:Panels="clr-namespace:WezNoOddaj.Panels" x:Class="WezNoOddaj.Screens.ResultPage"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}" 
+    d:DesignHeight="700" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot">
+        <controls:Pivot Title="" Foreground="Black">
+            <controls:PivotItem Header="Ciastko">
+                <Panels:PiePanel x:Name="panelPie" Width="Auto" Margin="0,0,0,10"/>
+            </controls:PivotItem>
+            <controls:PivotItem Header="Graf">
+                <Grid/>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+</UserControl>

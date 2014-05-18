@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="WezNoOddaj.Panels.NewCollectionPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="450" d:DesignWidth="400">
+
+    <Grid x:Name="LayoutRoot" Margin="0,0,0,0">
+
+        <TextBlock x:Name="lblSum" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Center" FontSize="36" Text="SUMA" FontFamily="Bradley Hand ITC" Foreground="Black"/>
+        <TextBlock x:Name="lblMembersCount" HorizontalAlignment="Left" Margin="10,79,0,0" TextWrapping="Wrap" Text="Liczba użytkowników:" VerticalAlignment="Top" FontSize="22" Width="295" Foreground="Black"/>
+
+        <Button x:Name="btnAddMember" Content="DODAJ" Click="btnAddMember_Click" Margin="0,0,0,0" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Foreground="Black"/>
+        <Button x:Name="btnCalculate" Content="Przelicz" Margin="10,0,10,10" Height="90" VerticalAlignment="Bottom" Click="btnCalculate_Click" Foreground="Black"/>
+
+    </Grid>
+</UserControl>

@@ -20,6 +20,8 @@ namespace GiveItBack
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+
+            
         }
 
         // Sample code for building a localized ApplicationBar

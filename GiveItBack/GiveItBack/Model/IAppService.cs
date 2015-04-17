@@ -5,8 +5,8 @@ using System.Text;
 
 namespace GiveItBack.Model
 {
-    public interface IDataService
+    public interface IAppService
     {
-        void GetData(Action<DataItem, Exception> callback);
+        void GetData(Action<AppModel, Exception> callback);
     }
 }

@@ -1,10 +1,9 @@
 ﻿using System;
-using GiveItBack.Model;
 using GiveItBack.ViewModel;
 
-namespace GiveItBack.Design
+namespace GiveItBack.Model.Services
 {
-    public class DesignDataService : IAppService
+    public class AppService : IAppService
     {
         public void GetData(Action<AppModel, Exception> callback)
         {

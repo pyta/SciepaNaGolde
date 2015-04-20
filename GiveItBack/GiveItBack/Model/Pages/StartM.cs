@@ -20,7 +20,7 @@ namespace GiveItBack.Model.Pages
         
         }
 
-        public new Control Content
+        public override Control Content
         {
             get { return new StartPanel() { DataContext = new StartVM(this) }; }
         }

@@ -13,7 +13,7 @@ namespace GiveItBack.Model.Pages
     {
         public string Header { get { return "To jest okno testowe"; } }
 
-        public new Control Content
+        public override Control Content
         {
             get { return new TestPage(); }
         }

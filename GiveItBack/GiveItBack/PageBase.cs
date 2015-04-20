@@ -9,10 +9,13 @@ using GiveItBack.Model;
 
 namespace GiveItBack
 {
-    public class PageBase : IAppPage
+    public abstract class PageBase : IAppPage
     {
         #region Private Members
 
+        /// <summary>
+        /// Prywatna zmienna przechowująca poprzednią podstronę.
+        /// </summary>
         private IAppPage _previousPage;
 
         #endregion
@@ -22,16 +25,17 @@ namespace GiveItBack
             get { return _previousPage; }
         }
 
-        public Control Content
-        {
-            get { return null; }
-        }
+        public abstract Control Content { get; }
 
         protected PageBase(IAppPage previousPage)
-        {            
+        {
             _previousPage = previousPage;
         }
 
+        /// <summary>
+        /// Ustawia przekazaną podstronę jako aktualnie wyświetlaną w aplikacji.
+        /// </summary>
+        /// <param name="newPage">Podstrona do wyświetlenia.</param>
         protected void GoToPage(IAppPage newPage)
         {
             AppModel.AppModelInstance.CurrentPage = newPage;

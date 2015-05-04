@@ -77,7 +77,7 @@ namespace GiveItBack.Model
 
         private IAppPage GetStartPage()
         {
-            return new StartM(null);
+            return new WelcomeM(null);
         }
 
         #endregion

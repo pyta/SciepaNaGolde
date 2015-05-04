@@ -15,7 +15,7 @@ using Microsoft.Practices.ServiceLocation;
 using GiveItBack.Model;
 using GiveItBack.Model.Services;
 
-namespace GiveItBack.ViewModel
+namespace GiveItBack.ViewModel.Locator
 {
     /// <summary>
     /// This class contains static references to all the view models in the

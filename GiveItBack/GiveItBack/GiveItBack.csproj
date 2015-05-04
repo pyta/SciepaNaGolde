@@ -99,18 +99,20 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AppModel.cs" />
+    <Compile Include="Model\Pages\HistoryM.cs" />
     <Compile Include="Model\Pages\StartM.cs" />
+    <Compile Include="Model\Pages\WelcomeM.cs" />
     <Compile Include="Model\Services\AppService.cs" />
     <Compile Include="Model\IAppService.cs" />
     <Compile Include="PageBase.cs" />
     <Compile Include="Pages\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\StartPanel.xaml.cs">
-      <DependentUpon>StartPanel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
@@ -120,7 +122,8 @@
     </Compile>
     <Compile Include="ViewModel\AppVM.cs" />
     <Compile Include="ViewModel\StartVM.cs" />
-    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\Locator\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\WelcomeVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -135,11 +138,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\StartPanel.xaml">
+    <Page Include="Pages\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\WelcomePage.xaml">
+    <Page Include="Pages\StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

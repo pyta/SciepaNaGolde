@@ -6,7 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             xmlns:vm="clr-namespace:GiveItBack.ViewModel"
+             xmlns:vm="clr-namespace:GiveItBack.ViewModel.Locator"
              xmlns:local="clr-namespace:GiveItBack">
 
     <!--Application Resources-->

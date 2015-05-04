@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using Common.Interfaces;
 using GiveItBack.Pages;
@@ -15,15 +16,28 @@ namespace GiveItBack.Model.Pages
     /// </summary>
     public class StartM : PageBase
     {
+        public override Control Content 
+        {
+            get
+            {
+                var page = new StartPage() { DataContext = new StartVM(this) };
+                return base.SetDefaultPageAttributes(page);
+            }
+        }
+
         public StartM(IAppPage previousPage)
             : base(previousPage)
         {
             
         }
-
-        public override Control Content
+        
+        public string Header 
         {
-            get { return new StartPanel() { DataContext = new StartVM(this) }; }
+            get 
+            {
+                // TODO: Jakiś tytuł.
+                return "tytuł1"; 
+            }
         }
 
         public void GoToMembers()

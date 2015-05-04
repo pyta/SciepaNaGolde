@@ -10,9 +10,9 @@ using Microsoft.Phone.Shell;
 
 namespace GiveItBack.Pages
 {
-    public partial class StartPanel : UserControl
+    public partial class StartPage : UserControl
     {
-        public StartPanel()
+        public StartPage()
         {
             InitializeComponent();
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using Common.Interfaces;
 using GiveItBack.Model;
@@ -39,6 +40,19 @@ namespace GiveItBack
         protected void GoToPage(IAppPage newPage)
         {
             AppModel.AppModelInstance.CurrentPage = newPage;
+        }
+
+        /// <summary>
+        /// Ustawia domyślne właściwości kontrolek.
+        /// </summary>
+        /// <param name="page">Kontrolka.</param>
+        /// <returns>Kontrolka wzbogacona o domyślne właściwości związane z wyświetlaniem na ekranie.</returns>
+        protected Control SetDefaultPageAttributes(Control page)
+        {
+            page.Margin = new Thickness(0);
+            page.Height = page.Width = double.NaN;
+
+            return page;
         }
     }
 }

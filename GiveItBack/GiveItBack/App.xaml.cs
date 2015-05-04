@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using GiveItBack.Resources;
 using GiveItBack.ViewModel;
+using GiveItBack.ViewModel.Locator;
 
 namespace GiveItBack
 {

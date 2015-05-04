@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="GiveItBack.Pages.WelcomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}" Height="513.057" Width="389.094">
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
+        <Button Content="Tapnij w Andrzeja, żeby rozpocząć!" Margin="0,0,0,87"/>
+        <Button Content="O autorach" HorizontalAlignment="Left" Margin="23,0,0,10" Height="72" VerticalAlignment="Bottom"/>
+    </Grid>
+</UserControl>

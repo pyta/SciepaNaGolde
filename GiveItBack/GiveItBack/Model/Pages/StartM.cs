@@ -10,14 +10,15 @@ using GiveItBack.ViewModel;
 
 namespace GiveItBack.Model.Pages
 {
+    /// <summary>
+    /// Klasa zarządająca startowym oknem aplikacji.
+    /// </summary>
     public class StartM : PageBase
     {
-        public string Header { get { return "To jest okno startowe"; } }
-
         public StartM(IAppPage previousPage)
             : base(previousPage)
-        { 
-        
+        {
+            
         }
 
         public override Control Content
@@ -25,9 +26,14 @@ namespace GiveItBack.Model.Pages
             get { return new StartPanel() { DataContext = new StartVM(this) }; }
         }
 
-        public void GoToTest()
+        public void GoToMembers()
         {
-            base.GoToPage(new TestM(this));
+            // TODO: Przejście do tworzenia listy.
+        }
+
+        public void GoToAuthors()
+        {
+            // TODO: Przejście do strony about.
         }
     }
 }

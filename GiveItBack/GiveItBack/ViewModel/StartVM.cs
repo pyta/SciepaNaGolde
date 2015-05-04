@@ -13,17 +13,13 @@ namespace GiveItBack.ViewModel
     {
         private StartM _model;
 
-        public string Header
-        {
-            get { return _model.Header; }
-        }
+        public RelayCommand ShowAutors { get; private set; }
 
         public StartVM(StartM model)
         {
             _model = model;
-            GoToTest = new RelayCommand(_model.GoToTest);
-        }
 
-        public RelayCommand GoToTest { get; private set; }
+            ShowAutors = new RelayCommand(_model.GoToAuthors);
+        }
     }
 }

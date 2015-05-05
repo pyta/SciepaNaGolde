@@ -11,15 +11,24 @@ namespace GiveItBack.ViewModel
 {
     public class StartVM : ViewModelBase
     {
+        #region Private Members
+
+        /// <summary>
+        /// Prywatna zmienna przechowująca model okna głównego.
+        /// </summary>
         private StartM _model;
 
-        public RelayCommand ShowAutors { get; private set; }
+        #endregion
+
+        public RelayCommand ShowAuthors { get; private set; }
+        public RelayCommand ShowMembers { get; private set; }
 
         public StartVM(StartM model)
         {
             _model = model;
 
-            ShowAutors = new RelayCommand(_model.GoToAuthors);
+            ShowAuthors = new RelayCommand(_model.GoToAuthors);
+            ShowMembers = new RelayCommand(_model.GoToMembers);
         }
     }
 }

@@ -15,8 +15,8 @@
             <phone:PivotItem DataContext="{Binding StartModel}" Header="{Binding Header}">                    
                 <ContentPresenter Content="{Binding Content}"/>
             </phone:PivotItem>
-            <phone:PivotItem Header="Historia">
-                <local:HistoryPage Height="Auto" Width="Auto"/>
+            <phone:PivotItem DataContext="{Binding HistoryModel}" Header="{Binding Header}">
+                <ContentPresenter Content="{Binding Content}"/>
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>

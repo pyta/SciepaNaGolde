@@ -10,6 +10,6 @@
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
         <Button Content="Tapnij w Andrzeja, żeby rozpocząć!" Command="{Binding ShowMembers}" Margin="0,0,0,87"/>
-        <Button Content="O autorach" HorizontalAlignment="Left" Command="{Binding ShowAuthors}" Margin="23,0,0,10" Height="72" VerticalAlignment="Bottom"/>
+        <Button Content="O autorach" HorizontalAlignment="Left" Command="{Binding ShowAuthors}" Margin="0,0,0,10" Height="72" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>

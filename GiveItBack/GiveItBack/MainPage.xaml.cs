@@ -52,13 +52,9 @@ namespace GiveItBack
             {
                 var model = DataContext as AppVM;
                 if (model.CurrentPage.PreviousPage != null)
-                {
                     model.CurrentPage.Back();
-                }
                 else
-                {
-                    // TODO: Zamknąć ta skrzynia.
-                }
+                    Application.Current.Terminate();
             }
         }
     }

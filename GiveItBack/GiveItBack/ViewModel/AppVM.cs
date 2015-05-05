@@ -1,6 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 using Common.Interfaces;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Ioc;
 using GiveItBack.Model;
 
 namespace GiveItBack.ViewModel
@@ -10,7 +12,7 @@ namespace GiveItBack.ViewModel
         #region Private Members
 
         private AppModel _appModel;
-        private readonly IAppService _dataService;        
+        private readonly IAppService _dataService;
 
         #endregion
 
@@ -48,7 +50,7 @@ namespace GiveItBack.ViewModel
                     }
 
                     _appModel = item;
-                    _appModel.CurrentPageChanged += CurrentPageChanged;                   
+                    _appModel.CurrentPageChanged += CurrentPageChanged;
                 });
         }
 
@@ -57,10 +59,17 @@ namespace GiveItBack.ViewModel
         ////    // Clean up if needed
 
         ////    base.Cleanup();
-        ////}        
+        ////}
 
         private void CurrentPageChanged()
         {
+            // _TODO_PC: W zależności od czegośtam inaczej można zmieniać strony. Albo i nie.
+
+            //var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();
+
+            //var uri = new Uri("/Windows/" + CurrentPage.Content.ToString() + ".xaml", UriKind.Relative);
+            //navigationService.NavigateTo(uri);
+
             RaisePropertyChanged("CurrentPage");
         }
     }

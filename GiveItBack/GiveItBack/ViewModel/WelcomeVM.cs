@@ -21,6 +21,8 @@ namespace GiveItBack.ViewModel
 
         #endregion
 
+        public string AppName { get { return "Give It Back!"; } }
+
         public IAppPage StartModel { get { return _model.StartModel; } }
         public IAppPage HistoryModel { get { return _model.HistoryModel; } }
 

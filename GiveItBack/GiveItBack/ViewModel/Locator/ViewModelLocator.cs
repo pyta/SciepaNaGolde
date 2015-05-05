@@ -14,6 +14,7 @@ using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using GiveItBack.Model;
 using GiveItBack.Model.Services;
+using Common.Interfaces;
 
 namespace GiveItBack.ViewModel.Locator
 {
@@ -50,10 +51,7 @@ namespace GiveItBack.ViewModel.Locator
             Justification = "This non-static member is needed for data binding purposes.")]
         public AppVM Main
         {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<AppVM>();
-            }
+            get { return ServiceLocator.Current.GetInstance<AppVM>(); }
         }
 
         /// <summary>

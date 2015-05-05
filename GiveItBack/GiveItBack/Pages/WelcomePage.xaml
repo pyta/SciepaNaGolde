@@ -11,13 +11,24 @@
     Foreground="{StaticResource PhoneForegroundBrush}">
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
-        <phone:Pivot>
-            <phone:PivotItem DataContext="{Binding StartModel}" Header="{Binding Header}">                    
-                <ContentPresenter Content="{Binding Content}"/>
-            </phone:PivotItem>
-            <phone:PivotItem DataContext="{Binding HistoryModel}" Header="{Binding Header}">
-                <ContentPresenter Content="{Binding Content}"/>
-            </phone:PivotItem>
-        </phone:Pivot>
+
+        <phone:Panorama Margin="0" Title="{Binding AppName}">
+            <phone:PanoramaItem CacheMode="{x:Null}" DataContext="{Binding StartModel}" Header="{Binding Header}">
+                <phone:PanoramaItem.RenderTransform>
+                    <TranslateTransform/>
+                </phone:PanoramaItem.RenderTransform>
+                <Grid>
+                    <ContentPresenter Content="{Binding Content}"/>
+                </Grid>
+            </phone:PanoramaItem>
+            <phone:PanoramaItem CacheMode="{x:Null}" DataContext="{Binding HistoryModel}" Header="{Binding Header}">
+                <phone:PanoramaItem.RenderTransform>
+                    <TranslateTransform/>
+                </phone:PanoramaItem.RenderTransform>
+                <Grid>
+                    <ContentPresenter Content="{Binding Content}"/>
+                </Grid>
+            </phone:PanoramaItem>
+        </phone:Panorama>
     </Grid>
 </UserControl>

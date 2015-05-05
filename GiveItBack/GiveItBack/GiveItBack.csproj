@@ -105,6 +105,9 @@
     <Compile Include="Model\Pages\WelcomeM.cs" />
     <Compile Include="Model\Services\AppService.cs" />
     <Compile Include="Model\IAppService.cs" />
+    <Compile Include="NavigationService .cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PageBase.cs" />
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>

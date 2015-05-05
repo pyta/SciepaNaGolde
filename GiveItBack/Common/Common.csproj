@@ -84,6 +84,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IAppPage.cs" />
+    <Compile Include="Interfaces\INavigationService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

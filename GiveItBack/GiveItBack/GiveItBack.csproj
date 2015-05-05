@@ -99,12 +99,16 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AppModel.cs" />
+    <Compile Include="Model\Pages\AboutM.cs" />
     <Compile Include="Model\Pages\HistoryM.cs" />
     <Compile Include="Model\Pages\StartM.cs" />
     <Compile Include="Model\Pages\WelcomeM.cs" />
     <Compile Include="Model\Services\AppService.cs" />
     <Compile Include="Model\IAppService.cs" />
     <Compile Include="PageBase.cs" />
+    <Compile Include="Pages\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
@@ -120,6 +124,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AboutVM.cs" />
     <Compile Include="ViewModel\AppVM.cs" />
     <Compile Include="ViewModel\StartVM.cs" />
     <Compile Include="ViewModel\Locator\ViewModelLocator.cs" />
@@ -131,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AboutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

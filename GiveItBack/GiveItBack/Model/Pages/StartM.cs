@@ -47,7 +47,8 @@ namespace GiveItBack.Model.Pages
 
         public void GoToAuthors()
         {
-            // TODO: Przejście do strony about.
+            var authors = new AboutM(base.PreviousPage);
+            base.GoToPage(authors);
         }
     }
 }

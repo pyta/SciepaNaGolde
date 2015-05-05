@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using GiveItBack.Resources;
+using GiveItBack.ViewModel;
 
 namespace GiveItBack
 {
@@ -20,8 +21,6 @@ namespace GiveItBack
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
-
-            
         }
 
         // Sample code for building a localized ApplicationBar
@@ -39,5 +38,28 @@ namespace GiveItBack
         //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
         //    ApplicationBar.MenuItems.Add(appBarMenuItem);
         //}
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            // TODO: Odwołać się do modelu i jeżeli możliwe jest wywołanie back to spoko - w przeciwym wypadku zamknąć aplikację.            
+
+            // Sytuacja, w której trzeba np. schować klawiaturę.
+            // base.OnBackKeyPress(e);
+
+            e.Cancel = true;
+
+            if (DataContext is AppVM)
+            {
+                var model = DataContext as AppVM;
+                if (model.CurrentPage.PreviousPage != null)
+                {
+                    model.CurrentPage.Back();
+                }
+                else
+                {
+                    // TODO: Zamknąć ta skrzynia.
+                }
+            }
+        }
     }
 }

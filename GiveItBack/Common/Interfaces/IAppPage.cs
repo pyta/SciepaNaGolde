@@ -18,5 +18,10 @@ namespace Common.Interfaces
         /// Zwraca widok, który reprezentuje daną stronę.
         /// </summary>
         Control Content { get; }
+
+        /// <summary>
+        /// Ustawia stronę określoną we właściwości <see cref="PreviousPage"/> jako aktualną stronę.
+        /// </summary>
+        void Back();
     }
 }

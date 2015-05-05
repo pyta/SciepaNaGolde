@@ -43,6 +43,15 @@ namespace GiveItBack
         }
 
         /// <summary>
+        /// Cofa się do poprzedniej strony.
+        /// </summary>
+        public void Back()
+        {
+            if (_previousPage != null)
+                GoToPage(_previousPage);
+        }
+
+        /// <summary>
         /// Ustawia domyślne właściwości kontrolek.
         /// </summary>
         /// <param name="page">Kontrolka.</param>

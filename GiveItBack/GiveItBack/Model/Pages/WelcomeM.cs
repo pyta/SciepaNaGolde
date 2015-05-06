@@ -24,12 +24,14 @@ namespace GiveItBack.Model.Pages
 
         public IAppPage StartModel { get; private set; }
         public IAppPage HistoryModel { get; private set; }
+        public IAppPage AboutModel { get; private set; }
 
         public WelcomeM(IAppPage previousPage)
             : base(previousPage)
         {
             StartModel = new StartM(this);
             HistoryModel = new HistoryM(this);
+            AboutModel = new AboutM(this);
         }
     }
 }

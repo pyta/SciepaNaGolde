@@ -34,21 +34,21 @@ namespace GiveItBack
         }
 
         /// <summary>
-        /// Ustawia przekazaną podstronę jako aktualnie wyświetlaną w aplikacji.
-        /// </summary>
-        /// <param name="newPage">Podstrona do wyświetlenia.</param>
-        protected void GoToPage(IAppPage newPage)
-        {
-            AppModel.AppModelInstance.CurrentPage = newPage;
-        }
-
-        /// <summary>
         /// Cofa się do poprzedniej strony.
         /// </summary>
         public void Back()
         {
             if (_previousPage != null)
                 GoToPage(_previousPage);
+        }
+
+        /// <summary>
+        /// Ustawia przekazaną podstronę jako aktualnie wyświetlaną w aplikacji.
+        /// </summary>
+        /// <param name="newPage">Podstrona do wyświetlenia.</param>
+        protected void GoToPage(IAppPage newPage)
+        {
+            AppModel.AppModelInstance.CurrentPage = newPage;
         }
 
         /// <summary>

@@ -25,6 +25,7 @@ namespace GiveItBack.ViewModel
 
         public IAppPage StartModel { get { return _model.StartModel; } }
         public IAppPage HistoryModel { get { return _model.HistoryModel; } }
+        public IAppPage AboutModel { get { return _model.AboutModel; } }
 
         public WelcomeVM(WelcomeM model)
         {

@@ -9,29 +9,21 @@ using GiveItBack.Pages;
 
 namespace GiveItBack.Model.Pages
 {
-    /// <summary>
-    /// Klasa zarządzająca stroną poświęconą historii łożenia pięniądzorów.
-    /// </summary>
-    public class HistoryM : PageBase
+    public class FundraisingM : PageBase
     {
         public override Control Content
         {
             get
             {
-                var page = new HistoryPage();
+                var page = new FundraisingPage();
                 return base.SetDefaultPageAttributes(page);
             }
         }
 
-        public string Header
-        {
-            get { return "Historia"; }
-        }
-
-        public HistoryM(IAppPage previousPage)
+        public FundraisingM(IAppPage previousPage)
             : base(previousPage)
-        {
-
+        { 
+        
         }
     }
 }

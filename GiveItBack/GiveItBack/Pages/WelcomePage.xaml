@@ -29,6 +29,14 @@
                     <ContentPresenter Content="{Binding Content}"/>
                 </Grid>
             </phone:PanoramaItem>
+            <phone:PanoramaItem CacheMode="{x:Null}" DataContext="{Binding AboutModel}" Header="{Binding Header}">
+                <phone:PanoramaItem.RenderTransform>
+                    <TranslateTransform/>
+                </phone:PanoramaItem.RenderTransform>
+                <Grid>
+                    <ContentPresenter Content="{Binding Content}"/>
+                </Grid>
+            </phone:PanoramaItem>
         </phone:Panorama>
     </Grid>
 </UserControl>

@@ -42,7 +42,8 @@ namespace GiveItBack.Model.Pages
 
         public void GoToMembers()
         {
-            // TODO: Przejście do tworzenia listy.
+            var fundraising = new FundraisingM(base.PreviousPage);
+            base.GoToPage(fundraising);
         }
 
         public void GoToAuthors()

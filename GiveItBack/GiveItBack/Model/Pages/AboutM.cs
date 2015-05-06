@@ -21,6 +21,11 @@ namespace GiveItBack.Model.Pages
             }
         }
 
+        public string Header
+        {
+            get { return "O autorach"; }
+        }
+
         public AboutM(IAppPage previousPage)
             : base(previousPage)
         { 

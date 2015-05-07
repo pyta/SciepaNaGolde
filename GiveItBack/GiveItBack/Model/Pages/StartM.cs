@@ -30,20 +30,16 @@ namespace GiveItBack.Model.Pages
         {
             
         }
-        
+
         public string Header 
         {
-            get 
-            {
-                // TODO: Jakiś tytuł.
-                return "tytuł1"; 
-            }
+            get { return "Nowa"; }
         }
 
         public void GoToMembers()
         {
-            var fundraising = new FundraisingM(base.PreviousPage);
-            base.GoToPage(fundraising);
+            var work = new WorkM(base.PreviousPage);
+            base.GoToPage(work);
         }
 
         public void GoToAuthors()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using Common.Interfaces;
 using GiveItBack.Pages;
+using GiveItBack.ViewModel;
 
 namespace GiveItBack.Model.Pages
 {
@@ -18,7 +19,7 @@ namespace GiveItBack.Model.Pages
         {
             get
             {
-                var page = new HistoryPage();
+                var page = new HistoryPage() { DataContext = new HistoryVM(this) };
                 return base.SetDefaultPageAttributes(page);
             }
         }

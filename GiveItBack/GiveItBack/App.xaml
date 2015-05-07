@@ -15,6 +15,7 @@
 
         <vm:ViewModelLocator x:Key="Locator"
                              d:IsDataSource="True" />
+
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

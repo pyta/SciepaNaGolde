@@ -102,8 +102,10 @@
     <Compile Include="Model\Pages\AboutM.cs" />
     <Compile Include="Model\Pages\FundraisingM.cs" />
     <Compile Include="Model\Pages\HistoryM.cs" />
+    <Compile Include="Model\Pages\MembersM.cs" />
     <Compile Include="Model\Pages\StartM.cs" />
     <Compile Include="Model\Pages\WelcomeM.cs" />
+    <Compile Include="Model\Pages\WorkM.cs" />
     <Compile Include="Model\Services\AppService.cs" />
     <Compile Include="Model\IAppService.cs" />
     <Compile Include="NavigationService .cs">
@@ -119,11 +121,17 @@
     <Compile Include="Pages\FundraisingPage.xaml.cs">
       <DependentUpon>FundraisingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MembersPage.xaml.cs">
+      <DependentUpon>MembersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WorkPage.xaml.cs">
+      <DependentUpon>WorkPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
@@ -134,9 +142,12 @@
     <Compile Include="ViewModel\AboutVM.cs" />
     <Compile Include="ViewModel\AppVM.cs" />
     <Compile Include="ViewModel\FundraisingVM.cs" />
+    <Compile Include="ViewModel\HistoryVM.cs" />
+    <Compile Include="ViewModel\MembersVM.cs" />
     <Compile Include="ViewModel\StartVM.cs" />
     <Compile Include="ViewModel\Locator\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WelcomeVM.cs" />
+    <Compile Include="ViewModel\WorkVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -159,11 +170,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MembersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WorkPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -8,7 +8,9 @@ using System.Windows.Media;
 using Common;
 using Common.Interfaces;
 using GiveItBack.Pages;
+using GiveItBack.Resources;
 using GiveItBack.ViewModel;
+using Microsoft.Phone.Shell;
 
 namespace GiveItBack.Model.Pages
 {
@@ -23,12 +25,20 @@ namespace GiveItBack.Model.Pages
             }
         }
 
+        public override ApplicationBar ApplicationBar { get { return null; } }
+
         public List<MemberInfo> MembersInfo { get; private set; }
 
         public FundraisingM(IAppPage previousPage)
             : base(previousPage)
         {
             MembersInfo = new List<MemberInfo>();
+        }
+
+        public void GoToAddMember()
+        {
+            var members = new AddMemberM(base.PreviousPage);
+            base.GoToPage(members);
         }
     }
 }

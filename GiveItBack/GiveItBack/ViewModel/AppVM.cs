@@ -4,6 +4,7 @@ using Common.Interfaces;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GiveItBack.Model;
+using Microsoft.Phone.Shell;
 
 namespace GiveItBack.ViewModel
 {
@@ -27,6 +28,11 @@ namespace GiveItBack.ViewModel
                     RaisePropertyChanged("CurrentPage");
                 }
             }
+        }
+
+        public ApplicationBar ApplicationBar
+        {
+            get { return _appModel.CurrentPage.ApplicationBar; }
         }
 
         public string Version
@@ -71,6 +77,7 @@ namespace GiveItBack.ViewModel
             //navigationService.NavigateTo(uri);
 
             RaisePropertyChanged("CurrentPage");
+            RaisePropertyChanged("ApplicationBar");
         }
     }
 }

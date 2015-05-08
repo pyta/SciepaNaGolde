@@ -18,7 +18,7 @@
     </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
-        <Button HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top">
+        <Button HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Command="{Binding GoToAddMember}">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Assets/ApplicationIcon.png" Stretch="Fill" Width="50" Height="50"/>
                 <TextBlock Text="Dodaj" VerticalAlignment="Center"/>
@@ -29,12 +29,6 @@
             </telerikChart:PieSeries>
         </telerikChart:RadPieChart>
         <TextBlock HorizontalAlignment="Center" Margin="124,0,123,100" TextWrapping="Wrap" Text="{Binding SumText}" Height="27" VerticalAlignment="Bottom"/>
-        <Button VerticalAlignment="Bottom" Margin="0" HorizontalAlignment="Center" Width="300">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/Assets/ApplicationIcon.png" Stretch="Fill" Width="50" Height="50"/>
-                <TextBlock Text="Przelicz co i jak" VerticalAlignment="Center"/>
-            </StackPanel>
-        </Button>
     </Grid>
     
 </UserControl>

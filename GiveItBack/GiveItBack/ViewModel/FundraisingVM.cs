@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Common;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GiveItBack.Model.Pages;
 using Telerik.Charting;
 
@@ -29,10 +30,14 @@ namespace GiveItBack.ViewModel
                 return string.Format("Łączna kwaota {0:0.00} zł", sum);
             }
         }
+
+        public RelayCommand GoToAddMember { get; private set; }
        
         public FundraisingVM(FundraisingM model)
         {
             _model = model;
+
+            GoToAddMember = new RelayCommand(_model.GoToAddMember);
         }
 
         #region Private Methods

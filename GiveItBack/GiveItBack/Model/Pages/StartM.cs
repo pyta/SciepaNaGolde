@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using Common.Interfaces;
 using GiveItBack.Pages;
 using GiveItBack.ViewModel;
+using Microsoft.Phone.Shell;
 
 namespace GiveItBack.Model.Pages
 {
@@ -24,6 +25,8 @@ namespace GiveItBack.Model.Pages
                 return base.SetDefaultPageAttributes(page);
             }
         }
+
+        public override ApplicationBar ApplicationBar { get { return null; } }
 
         public StartM(IAppPage previousPage)
             : base(previousPage)

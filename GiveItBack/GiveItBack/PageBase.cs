@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Common.Interfaces;
 using GiveItBack.Model;
+using Microsoft.Phone.Shell;
 
 namespace GiveItBack
 {
@@ -27,6 +28,8 @@ namespace GiveItBack
         }
 
         public abstract Control Content { get; }
+
+        public abstract ApplicationBar ApplicationBar { get; }
 
         protected PageBase(IAppPage previousPage)
         {

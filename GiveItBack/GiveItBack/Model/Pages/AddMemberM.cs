@@ -12,7 +12,7 @@ using Microsoft.Phone.Shell;
 
 namespace GiveItBack.Model.Pages
 {
-    public class WorkM : PageBase
+    public class AddMemberM : PageBase
     {
         #region Private Members
 
@@ -24,22 +24,16 @@ namespace GiveItBack.Model.Pages
         {
             get
             {
-                var page = new WorkPage() { DataContext = new WorkVM(this) };
+                var page = new AddMemberPage() { DataContext = new AddMemberVM(this) };
                 return base.SetDefaultPageAttributes(page);
             }
         }
 
-        public override ApplicationBar ApplicationBar { get { return _bar; } }
+        public override ApplicationBar ApplicationBar { get { return _bar; ; } }
 
-        public IAppPage FundraisingModel { get; private set; }
-        public IAppPage MembersModel { get; private set; }
-
-        public WorkM(IAppPage previousPage)
+        public AddMemberM(IAppPage previousPage)
             : base(previousPage)
         {
-            FundraisingModel = new FundraisingM(this);
-            MembersModel = new MembersM(this);
-
             _bar = CreateBar();
         }
 
@@ -47,7 +41,7 @@ namespace GiveItBack.Model.Pages
 
         private ApplicationBar CreateBar()
         {
-            // TODO: Utworzyć menu dla obszaru roboczego tworzenia zrzuteczki.
+            // TODO: Utworzyć menu do zatwierdzania nowego uczestnika zrzuteczki.
 
             // Set the page's ApplicationBar to a new instance of ApplicationBar.
             var bar = new ApplicationBar();

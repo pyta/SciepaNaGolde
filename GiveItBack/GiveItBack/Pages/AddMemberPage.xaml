@@ -4,15 +4,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
 
-    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-        <CheckBox Content="Wybierz z kontaktów" VerticalAlignment="Top" IsChecked="True"/>
-        <TextBox Height="72" Margin="0,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Grid Margin="0,154,0,0"/>
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
+        <CheckBox Content="Wybierz z kontaktów" VerticalAlignment="Top" IsChecked="{Binding AddFromContacts,Mode=TwoWay}"/>
+        <TextBox Height="72" Margin="0,77,80,0" TextWrapping="Wrap" Text="{Binding MemberName, Mode=TwoWay}"  VerticalAlignment="Top"/>
+        <ListBox Margin="15,154,15,0" ItemsSource="{Binding VisibleContacts}" SelectedIndex="{Binding SelectedContact, Mode=TwoWay}">
+
+        </ListBox>
+        <Button Content="->" Margin="405,77,0,0" VerticalAlignment="Top" IsEnabled="{Binding AddFromContacts}" Command="{Binding FindContactsCommand}"/>
     </Grid>
-    
+
 </UserControl>

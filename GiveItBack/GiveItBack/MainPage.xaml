@@ -28,10 +28,9 @@
         <!--Grid ContentPanel łączy się z głównym ViewModelem aplikacji. VM ten udsotępnia m.in.
             właściwość Content, która jest kontrolką tworzoną przez aktualnie wyświetlaną stronę.-->
 
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,40" DataContext="{Binding CurrentPage}">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0" DataContext="{Binding CurrentPage}">
             <ContentPresenter Content="{Binding Content}"/>
         </Grid>
-        <TextBlock Margin="0,0,10,10" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Version}" HorizontalAlignment="Right" Width="100" Height="25" VerticalAlignment="Bottom" TextAlignment="Center"/>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to

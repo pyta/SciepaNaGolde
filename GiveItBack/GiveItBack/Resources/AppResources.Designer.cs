@@ -61,15 +61,6 @@ namespace GiveItBack.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to add.
-        /// </summary>
-        public static string AppBarButtonText {
-            get {
-                return ResourceManager.GetString("AppBarButtonText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Menu Item.
         /// </summary>
         public static string AppBarMenuItemText {
@@ -111,6 +102,15 @@ namespace GiveItBack.Resources {
         public static string strHistory {
             get {
                 return ResourceManager.GetString("strHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj uczestnika.
+        /// </summary>
+        public static string WorkBarAddMember {
+            get {
+                return ResourceManager.GetString("WorkBarAddMember", resourceCulture);
             }
         }
     }

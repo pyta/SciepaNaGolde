@@ -30,11 +30,15 @@ namespace GiveItBack.ViewModel
             TopicControl = CreateTopicControl();
         }
 
+        #region Private Methods
+
         private FrameworkElement CreateTopicControl()
         {
             // TODO: Utwrzyć jakiś element graficzny.
 
             return new TextBlock() { Text = "GiveItBack" };
         }
+
+        #endregion
     }
 }

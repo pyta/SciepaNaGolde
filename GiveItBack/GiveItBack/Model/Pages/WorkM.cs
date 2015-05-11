@@ -47,21 +47,25 @@ namespace GiveItBack.Model.Pages
 
         private ApplicationBar CreateBar()
         {
-            // TODO: Utworzyć menu dla obszaru roboczego tworzenia zrzuteczki.
-
-            // Set the page's ApplicationBar to a new instance of ApplicationBar.
+            // TODO: Utworzyć menu dla obszaru roboczego tworzenia zrzuteczki.            
             var bar = new ApplicationBar();
 
-            // Create a new button and set the text value to the localized string from AppResources.
-            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-            appBarButton.Text = AppResources.AppBarButtonText;
-            bar.Buttons.Add(appBarButton);
+            ApplicationBarIconButton addMemberBtn = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
+            addMemberBtn.Text = AppResources.WorkBarAddMember;
+            addMemberBtn.Click += appBarButton_Click;
 
-            // Create a new menu item with the localized string from AppResources.
-            ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-            bar.MenuItems.Add(appBarMenuItem);
+            ApplicationBarIconButton calculateBtn = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
+            calculateBtn.Text = AppResources.WorkBarAddMember;
+
+            bar.Buttons.Add(addMemberBtn);
+            bar.Buttons.Add(calculateBtn);
 
             return bar;
+        }
+
+        private void appBarButton_Click(object sender, EventArgs e)
+        {
+            ((FundraisingM)FundraisingModel).GoToAddMember();
         }
 
         #endregion

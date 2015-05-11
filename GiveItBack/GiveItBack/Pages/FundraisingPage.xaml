@@ -8,9 +8,9 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}">
-    
+
     <!-- Niestety WP nie obsługuje bindowania pola Value w setterze. Będzie trzeba rozpykać to inaczej. -->
-    
+
     <UserControl.Resources>
         <Style x:Key="PieSliceStyle" TargetType="Path">
             <Setter Property="Fill" Value="#555555"/>
@@ -18,17 +18,11 @@
     </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
-        <Button HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Command="{Binding GoToAddMember}">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/Assets/ApplicationIcon.png" Stretch="Fill" Width="50" Height="50"/>
-                <TextBlock Text="Dodaj" VerticalAlignment="Center"/>
-            </StackPanel>
-        </Button>
-        <telerikChart:RadPieChart x:Name="PieChart" Margin="10,96,10,132" EmptyContent="Lista jest pusta!&#xD;&#xA;" >
+        <telerikChart:RadPieChart x:Name="PieChart" Margin="0,96,0,132" EmptyContent="Lista jest pusta!&#xD;&#xA;" >
             <telerikChart:PieSeries DefaultSliceStyle="{StaticResource PieSliceStyle}" ItemsSource="{Binding DataPoints}" ValueBinding="Value">
             </telerikChart:PieSeries>
         </telerikChart:RadPieChart>
-        <TextBlock HorizontalAlignment="Center" Margin="124,0,123,100" TextWrapping="Wrap" Text="{Binding SumText}" Height="27" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Center" Margin="241,10,239,0" TextWrapping="Wrap" Text="{Binding SumText}" Height="27" VerticalAlignment="Top"/>
     </Grid>
-    
+
 </UserControl>

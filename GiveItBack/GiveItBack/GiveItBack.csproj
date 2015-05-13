@@ -100,6 +100,7 @@
     <Compile Include="Model\AppModel.cs" />
     <Compile Include="Model\Pages\AboutM.cs" />
     <Compile Include="Model\Pages\AddMemberM.cs" />
+    <Compile Include="Model\Pages\AddValueM.cs" />
     <Compile Include="Model\Pages\FundraisingM.cs" />
     <Compile Include="Model\Pages\HistoryM.cs" />
     <Compile Include="Model\Pages\MembersM.cs" />
@@ -117,6 +118,9 @@
     </Compile>
     <Compile Include="Pages\AddMemberPage.xaml.cs">
       <DependentUpon>AddMemberPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddValuePage.xaml.cs">
+      <DependentUpon>AddValuePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
@@ -147,6 +151,7 @@
     <Compile Include="ViewModel\AppVM.cs" />
     <Compile Include="ViewModel\FundraisingVM.cs" />
     <Compile Include="ViewModel\HistoryVM.cs" />
+    <Compile Include="ViewModel\AddValueVM.cs" />
     <Compile Include="ViewModel\MembersVM.cs" />
     <Compile Include="ViewModel\StartVM.cs" />
     <Compile Include="ViewModel\Locator\ViewModelLocator.cs" />
@@ -167,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AddMemberPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddValuePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,10 +13,8 @@
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
         <CheckBox Content="Wybierz z kontaktów" VerticalAlignment="Top" IsChecked="{Binding AddFromContacts,Mode=TwoWay}"/>
-        <TextBox Height="72" Margin="0,77,80,0" TextWrapping="Wrap" Text="{Binding MemberName, Mode=TwoWay}"  VerticalAlignment="Top"/>
-        <ListBox Margin="15,154,15,0" ItemsSource="{Binding VisibleContacts}" SelectedIndex="{Binding SelectedContact, Mode=TwoWay}">
-
-        </ListBox>
+        <TextBox x:Name="_txtName" Height="72" Margin="0,77,80,0" TextWrapping="Wrap" Text="{Binding MemberName, Mode=TwoWay}"  VerticalAlignment="Top"/>
+        <ListBox Margin="12,154,12,0" ItemsSource="{Binding VisibleContacts}" SelectedIndex="{Binding SelectedContact, Mode=TwoWay}"/>
         <Button Content="->" Margin="405,77,0,0" VerticalAlignment="Top" IsEnabled="{Binding AddFromContacts}" Command="{Binding FindContactsCommand}"/>
     </Grid>
 

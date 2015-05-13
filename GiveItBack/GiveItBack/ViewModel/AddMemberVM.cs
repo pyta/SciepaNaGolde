@@ -24,7 +24,9 @@ namespace GiveItBack.ViewModel
         private Contacts _cons;
 
         private List<string> _filters = new List<string>();
-        private List<SelectedMember> _contacts;
+        private List<SelectedMember> _contacts = new List<SelectedMember>();
+
+        private int _selctedContact = -1;
        
         #endregion
 
@@ -37,20 +39,17 @@ namespace GiveItBack.ViewModel
             {
                 var contacts = new List<ContactFindResult>();
 
-                if (_contacts != null)
+                foreach (var m in _contacts)
                 {
-                    foreach (var m in _contacts)
+                    var control = new ContactFindResult()
                     {
-                        var control = new ContactFindResult()
-                        {
-                            DataContext = m,
-                            Width = double.NaN,
-                            Height = 79.0d,
-                            Margin = new Thickness(0)
-                        };
+                        DataContext = m,
+                        Width = double.NaN,
+                        Height = 79.0d,
+                        Margin = new Thickness(0)
+                    };
 
-                        contacts.Add(control);
-                    }
+                    contacts.Add(control);
                 }
 
                 return contacts;
@@ -59,15 +58,17 @@ namespace GiveItBack.ViewModel
 
         public int SelectedContact
         {
-            get { return _model.SelectedContact; }
+            get { return _selctedContact; }
             set
             {
                 if (value != SelectedContact && value != -1)
                 {
-                    _model.SelectedContact = value;
+                    _selctedContact = value;
 
                     for (int i = 0; i < _contacts.Count; ++i)
                         _contacts[i].IsSelected = (i == SelectedContact);
+
+                    _model.SelectedMember = _contacts[SelectedContact];
 
                     RaisePropertyChanged("VisibleContacts");
                 }
@@ -85,9 +86,7 @@ namespace GiveItBack.ViewModel
 
                     if (!AddFromContacts)
                     {
-                        if (_contacts != null)
-                            _contacts.Clear();
-
+                        _contacts.Clear();
                         RaisePropertyChanged("VisibleContacts");
                     }
 
@@ -110,6 +109,7 @@ namespace GiveItBack.ViewModel
         }
 
         public RelayCommand FindContactsCommand { get; private set; }
+        public RelayCommand SelectMemberCommand { get; private set; }
 
         public AddMemberVM(AddMemberM model)
         {
@@ -119,6 +119,7 @@ namespace GiveItBack.ViewModel
             _model = model;
 
             FindContactsCommand = new RelayCommand(FindContacts);
+            SelectMemberCommand = new RelayCommand(SelectMember);
         }
 
         public void SelectMember()
@@ -168,7 +169,7 @@ namespace GiveItBack.ViewModel
             if (e.State.ToString() == _filters.Last())
             {                
                 _contacts = CreateMembersList(e);
-                _model.SelectedContact = -1;
+                _selctedContact = -1;
 
                 RaisePropertyChanged("VisibleContacts");
             }

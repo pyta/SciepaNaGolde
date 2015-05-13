@@ -20,7 +20,7 @@ namespace GiveItBack.ViewModel
 
         #endregion
 
-        public List<MemberInfo> DataPoints { get { return _model.MembersInfo; } }
+        public List<MemberInfo> DataPoints { get { return _model.MembersInfo.Where(x => x.Value != 0).ToList(); } }
 
         public string SumText
         {
@@ -30,14 +30,10 @@ namespace GiveItBack.ViewModel
                 return string.Format("Łączna kwaota {0:0.00} zł", sum);
             }
         }
-
-        public RelayCommand GoToAddMember { get; private set; }
        
         public FundraisingVM(FundraisingM model)
         {
             _model = model;
-
-            GoToAddMember = new RelayCommand(_model.GoToAddMember);
         }
 
         #region Private Methods

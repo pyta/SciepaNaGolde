@@ -10,16 +10,11 @@ using Microsoft.Phone.Shell;
 
 namespace GiveItBack.Pages
 {
-    public partial class AddMemberPage : UserControl
+    public partial class AddValuePage : UserControl
     {
-        public AddMemberPage()
+        public AddValuePage()
         {
             InitializeComponent();
-        }
-
-        public void ShowKeyboard()
-        {
-            _txtName.Focus();
         }
     }
 }

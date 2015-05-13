@@ -11,8 +11,8 @@
 
     <Border Background="{Binding Border}">
         <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}" Margin="5,0,0,0">        
-                <Image HorizontalAlignment="Left" Margin="5,5,0,5" Width="65" Source="{Binding Avatar}"/>
-                <TextBlock Margin="100,10,10,10" TextWrapping="Wrap" Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>        
+            <Image HorizontalAlignment="Left" Margin="5,5,0,5" Width="65" Source="{Binding Avatar}"/>
+            <TextBlock Margin="100,10,10,10" TextWrapping="Wrap" Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>        
         </Grid>
     </Border>
 

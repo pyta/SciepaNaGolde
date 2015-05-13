@@ -18,7 +18,7 @@
     </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
-        <telerikChart:RadPieChart x:Name="PieChart" Margin="0,96,0,132" EmptyContent="Lista jest pusta!&#xD;&#xA;" >
+        <telerikChart:RadPieChart x:Name="PieChart" Margin="0,96,0,132" EmptyContent="Nie wprowadzono jeszcze żadnego znaczącego wkładu&#xA;" >
             <telerikChart:PieSeries DefaultSliceStyle="{StaticResource PieSliceStyle}" ItemsSource="{Binding DataPoints}" ValueBinding="Value">
             </telerikChart:PieSeries>
         </telerikChart:RadPieChart>

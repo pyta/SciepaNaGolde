@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using Common;
 using Common.Interfaces;
 using GiveItBack.Pages;
 using GiveItBack.Resources;
@@ -17,6 +18,7 @@ namespace GiveItBack.Model.Pages
         #region Private Members
 
         private ApplicationBar _bar;
+        public List<MemberInfo> MembersInfo { get; private set; }
 
         #endregion
 
@@ -37,17 +39,25 @@ namespace GiveItBack.Model.Pages
         public WorkM(IAppPage previousPage)
             : base(previousPage)
         {
-            FundraisingModel = new FundraisingM(this);
+            MembersInfo = new List<MemberInfo>();
+
+            FundraisingModel = new FundraisingM(this, MembersInfo);
             MembersModel = new MembersM(this);
 
             _bar = CreateBar();
+        }
+
+        public void AddNewMember(MemberInfo member)
+        {
+            MembersInfo.Add(member);
         }
 
         #region Private Methods
 
         private ApplicationBar CreateBar()
         {
-            // TODO: Utworzyć menu dla obszaru roboczego tworzenia zrzuteczki.            
+            // TODO: Utworzyć menu dla obszaru roboczego tworzenia zrzuteczki.
+
             var bar = new ApplicationBar();
 
             ApplicationBarIconButton addMemberBtn = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
@@ -56,6 +66,7 @@ namespace GiveItBack.Model.Pages
 
             ApplicationBarIconButton calculateBtn = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
             calculateBtn.Text = AppResources.WorkBarAddMember;
+            calculateBtn.Click += calculateBtn_Click;
 
             bar.Buttons.Add(addMemberBtn);
             bar.Buttons.Add(calculateBtn);
@@ -63,9 +74,25 @@ namespace GiveItBack.Model.Pages
             return bar;
         }
 
+        void calculateBtn_Click(object sender, EventArgs e)
+        {
+            GoToResults();
+        }
+
         private void appBarButton_Click(object sender, EventArgs e)
         {
-            ((FundraisingM)FundraisingModel).GoToAddMember();
+            GoToAddMember();
+        }
+
+        public void GoToAddMember()
+        {
+            var members = new AddMemberM(this);
+            base.GoToPage(members);
+        }
+
+        public void GoToResults()
+        { 
+            // TODO: Przejść do strony z wynikiem.
         }
 
         #endregion

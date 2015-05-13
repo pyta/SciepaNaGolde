@@ -14,6 +14,9 @@ using Microsoft.Phone.Shell;
 
 namespace GiveItBack.Model.Pages
 {
+    /// <summary>
+    /// Podstrona głównego okna roboczego.
+    /// </summary>
     public class FundraisingM : PageBase
     {
         public override Control Content
@@ -29,16 +32,13 @@ namespace GiveItBack.Model.Pages
 
         public List<MemberInfo> MembersInfo { get; private set; }
 
-        public FundraisingM(IAppPage previousPage)
+        public FundraisingM(IAppPage previousPage, List<MemberInfo> members)
             : base(previousPage)
         {
-            MembersInfo = new List<MemberInfo>();
-        }
+            MembersInfo = members;
 
-        public void GoToAddMember()
-        {
-            var members = new AddMemberM(base.PreviousPage);
-            base.GoToPage(members);
+            //MembersInfo.Add(new MemberInfo("", 90.0d, Colors.Red));
+            //MembersInfo.Add(new MemberInfo("", 11.4d, Colors.Yellow));
         }
     }
 }

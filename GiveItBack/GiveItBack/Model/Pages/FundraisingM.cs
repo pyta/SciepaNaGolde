@@ -32,13 +32,10 @@ namespace GiveItBack.Model.Pages
 
         public List<MemberInfo> MembersInfo { get; private set; }
 
-        public FundraisingM(IAppPage previousPage, List<MemberInfo> members)
-            : base(previousPage)
+        public FundraisingM(WorkM workModel)
+            : base(workModel)
         {
-            MembersInfo = members;
-
-            //MembersInfo.Add(new MemberInfo("", 90.0d, Colors.Red));
-            //MembersInfo.Add(new MemberInfo("", 11.4d, Colors.Yellow));
+            MembersInfo = workModel.MembersInfo;
         }
     }
 }

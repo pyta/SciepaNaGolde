@@ -17,6 +17,8 @@ namespace GiveItBack.Model.Pages
     /// </summary>
     public class StartM : PageBase
     {
+        private WorkM _work;
+
         public override Control Content 
         {
             get
@@ -41,7 +43,9 @@ namespace GiveItBack.Model.Pages
 
         public void GoToMembers()
         {
-            var work = new WorkM(base.PreviousPage);
+            _work = new WorkM(base.PreviousPage);
+
+            var work = new AddMemberM(_work);
             base.GoToPage(work);
         }
 

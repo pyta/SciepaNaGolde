@@ -20,7 +20,10 @@ namespace GiveItBack.ViewModel
 
         #endregion
 
-        public List<MemberInfo> DataPoints { get { return _model.MembersInfo.Where(x => x.Value != 0).ToList(); } }
+        public List<MemberInfo> DataPoints 
+        {
+            get { return _model.MembersInfo.Where(x => x.Value != 0).ToList(); }
+        }
 
         public string SumText
         {

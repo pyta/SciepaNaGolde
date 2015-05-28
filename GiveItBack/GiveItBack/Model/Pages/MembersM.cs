@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using Common;
 using Common.Interfaces;
 using GiveItBack.Pages;
 using GiveItBack.ViewModel;
@@ -24,10 +25,12 @@ namespace GiveItBack.Model.Pages
 
         public override ApplicationBar ApplicationBar { get { return null; } }
 
-        public MembersM(IAppPage previousPage)
-            : base(previousPage)
-        {
+        public List<MemberInfo> Members { get; private set; }
 
+        public MembersM(WorkM workModel)
+            : base(workModel)
+        {
+            Members = workModel.MembersInfo;
         }
     }
 }

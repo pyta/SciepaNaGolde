@@ -73,15 +73,17 @@ namespace GiveItBack.Model.Pages
 
         void appBarButton_Click(object sender, EventArgs e)
         {
-            MemberInfo info = new MemberInfo(
-                Member.Name,
-                Value, 
-                ToolsKit.GetColor(), 
-                Member.Avatar, 
-                Member.AdditionalInfo != null ? Member.AdditionalInfo.PhoneNumber : string.Empty);
-
             if (_workPage is WorkM)
+            {
+                MemberInfo info = new MemberInfo(
+                    Member.Name,
+                    Value,
+                    ToolsKit.GetColor(),
+                    Member.Avatar,
+                    Member.AdditionalInfo != null ? Member.AdditionalInfo.PhoneNumber : string.Empty);
+
                 ((WorkM)_workPage).AddNewMember(info);
+            }
 
             GoToPage(_workPage);
         }

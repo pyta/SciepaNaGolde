@@ -97,6 +97,15 @@ namespace GiveItBack.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trwa wyszukiwanie kontaktów....
+        /// </summary>
+        public static string strContactsSearching {
+            get {
+                return ResourceManager.GetString("strContactsSearching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Historia.
         /// </summary>
         public static string strHistory {

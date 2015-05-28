@@ -138,4 +138,8 @@
     <value>Historia</value>
     <comment>Nazwa podstrony z historią zrzuteczek.</comment>
   </data>
+  <data name="strContactsSearching" xml:space="preserve">
+    <value>Trwa wyszukiwanie kontaktów...</value>
+    <comment>Etykietka wyświetlana podczas przeszukiwania kontaktów.</comment>
+  </data>
 </root>

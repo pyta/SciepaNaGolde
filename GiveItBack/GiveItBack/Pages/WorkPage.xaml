@@ -16,12 +16,12 @@
             <phone:Pivot.Title>
                 <ContentPresenter Content="{Binding TopicControl}"/>
             </phone:Pivot.Title>
-            <phone:PivotItem CacheMode="{x:Null}" DataContext="{Binding FundraisingModel}" Header="{Binding Header}">
+            <phone:PivotItem CacheMode="{x:Null}" DataContext="{Binding MembersModel}" Header="{Binding Header}">
                 <Grid>
                     <ContentPresenter Content="{Binding Content}"/>
                 </Grid>
             </phone:PivotItem>
-            <phone:PivotItem CacheMode="{x:Null}" DataContext="{Binding MembersModel}" Header="{Binding Header}">
+            <phone:PivotItem CacheMode="{x:Null}" DataContext="{Binding FundraisingModel}" Header="{Binding Header}">
                 <Grid>
                     <ContentPresenter Content="{Binding Content}"/>
                 </Grid>
@@ -29,4 +29,5 @@
         </phone:Pivot>
 
     </Grid>
+    
 </UserControl>

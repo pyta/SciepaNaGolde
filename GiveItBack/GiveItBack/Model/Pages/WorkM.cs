@@ -41,7 +41,7 @@ namespace GiveItBack.Model.Pages
         {
             MembersInfo = new List<MemberInfo>();
 
-            FundraisingModel = new FundraisingM(this, MembersInfo);
+            FundraisingModel = new FundraisingM(this);
             MembersModel = new MembersM(this);
 
             _bar = CreateBar();
@@ -50,6 +50,17 @@ namespace GiveItBack.Model.Pages
         public void AddNewMember(MemberInfo member)
         {
             MembersInfo.Add(member);
+        }
+
+        public void GoToAddMember()
+        {
+            var members = new AddMemberM(this);
+            base.GoToPage(members);
+        }
+
+        public void GoToResults()
+        {
+            // TODO: Przejść do strony z wynikiem.
         }
 
         #region Private Methods
@@ -82,17 +93,6 @@ namespace GiveItBack.Model.Pages
         private void appBarButton_Click(object sender, EventArgs e)
         {
             GoToAddMember();
-        }
-
-        public void GoToAddMember()
-        {
-            var members = new AddMemberM(this);
-            base.GoToPage(members);
-        }
-
-        public void GoToResults()
-        { 
-            // TODO: Przejść do strony z wynikiem.
         }
 
         #endregion

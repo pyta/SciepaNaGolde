@@ -13,9 +13,28 @@
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
         <CheckBox Content="Wybierz z kontaktów" VerticalAlignment="Top" IsChecked="{Binding AddFromContacts,Mode=TwoWay}"/>
-        <TextBox x:Name="_txtName" Height="72" Margin="0,77,80,0" TextWrapping="Wrap" Text="{Binding MemberName, Mode=TwoWay}"  VerticalAlignment="Top"/>
-        <ListBox Margin="12,154,12,0" ItemsSource="{Binding VisibleContacts}" SelectedIndex="{Binding SelectedContact, Mode=TwoWay}"/>
+        <!-- Kontrolka do filtrowania kontaków, lub do wpisywania użytkownika z palca. -->
+        <TextBox x:Name="_txtName" Height="72" Margin="0,77,80,0" TextWrapping="Wrap" Text="{Binding MemberName, Mode=TwoWay, UpdateSourceTrigger=Explicit}"  VerticalAlignment="Top" TextChanged="_txtName_TextChanged"/>
+        <!-- TODO: Zmienić tu ikona na jakoś lupa. -->
         <Button Content="->" Margin="405,77,0,0" VerticalAlignment="Top" IsEnabled="{Binding AddFromContacts}" Command="{Binding FindContactsCommand}"/>
+        <!-- Labelka informująca o stanie przeszukiwania kontaków. -->
+        <TextBlock Margin="0,154,0,0" TextWrapping="Wrap" Text="{Binding SearchState}" VerticalAlignment="Top" TextAlignment="Center" Height="27"/>
+        <!-- Lista z wynikami przeszukiwania kontaków. -->
+        <ListBox Margin="0,186,0,0" ItemsSource="{Binding VisibleContacts}" SelectedIndex="{Binding SelectedContact, Mode=TwoWay, UpdateSourceTrigger=Explicit}" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="5,0,0,0">
+                        <Image HorizontalAlignment="Left" Margin="5,5,0,5" Width="65" Source="{Binding Avatar}"/>
+                        <TextBlock Margin="100,10,10,10" TextWrapping="Wrap" Text="{Binding Name}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 
 </UserControl>

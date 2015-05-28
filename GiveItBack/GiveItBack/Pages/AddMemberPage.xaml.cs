@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Navigation;
+using Common.Interfaces;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
@@ -18,10 +19,16 @@ namespace GiveItBack.Pages
             InitializeComponent();
         }
 
-        public void ShowKeyboard()
+        #region Private Methods
+
+        private bool ShowKeyboard()
         {
-            _txtName.Focus();
+            return _txtName.Focus();
         }
+
+        #endregion
+
+        #region Events
 
         private void _txtName_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -36,5 +43,14 @@ namespace GiveItBack.Pages
             BindingExpression bindingExpr = listBox.GetBindingExpression(ListBox.SelectedIndexProperty);
             bindingExpr.UpdateSource();
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            BindingExpression bindingExpr = checkBox.GetBindingExpression(CheckBox.IsCheckedProperty);
+            bindingExpr.UpdateSource();
+        }
+
+        #endregion
     }
 }

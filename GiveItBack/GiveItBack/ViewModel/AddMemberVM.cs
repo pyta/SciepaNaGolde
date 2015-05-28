@@ -26,6 +26,19 @@ namespace GiveItBack.ViewModel
         private List<string> _filters = new List<string>();
         private bool _search;
 
+        /// <summary>
+        /// Prywatna lista zawierająca wynik przeszukiwania kontaktów.
+        /// </summary>
+        private List<SelectedMember> _visibleContacts;
+
+        /// <summary>
+        /// Prywatna zmienna przechowująca wartość wpisaną w polu z nazwą uczestnika. Wartość może służyć do przeszukiwania kontaktów.
+        /// </summary>
+        private string _memberName = string.Empty;
+
+        /// <summary>
+        /// Prywatna flaga informująca o trybie wprowadzania uczestnika (wartość z kontaktów lub bezpośrednio z pola tekstowego).
+        /// </summary>
         private bool _addFromContacts = true;
 
         private const string PROP_SERCH_STATE = "SearchState";
@@ -49,9 +62,9 @@ namespace GiveItBack.ViewModel
                     else
                     {
                         if (VisibleContacts.Any())
-                            return string.Format("Liczba znalezionych kontaktów: {0}.", VisibleContacts.Count);
+                            return string.Format("{0}: {1}.", AppResources.strFoundContactsCount, VisibleContacts.Count);
                         else
-                            return "Nie znaleziono żadnych kontaktów.";
+                            return AppResources.strNoContactsFound;
                     }
                 }
                 else
@@ -71,16 +84,48 @@ namespace GiveItBack.ViewModel
             {
                 if (value != AddFromContacts)
                 {
+                    if (VisibleContacts != null && VisibleContacts.Any())
+                        VisibleContacts = null;
+
                     _addFromContacts = value;
-
-                    if (!AddFromContacts)
-                    {
-                        VisibleContacts.Clear();
-                        RaisePropertyChanged(PROP_VISIBLE_CONTACTS);
-                    }
-
                     RaisePropertyChanged(PROP_ADD_FOM_CONTACTS);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Zwraca lub ustawia nazwę wpisaną w polu tekstowym formatki.
+        /// </summary>
+        public string MemberName 
+        {
+            get { return _memberName; }
+            set
+            {
+                if (_memberName != value)
+                {
+                    _memberName = value;
+
+                    if (AddFromContacts)
+                        FilterContacts(_memberName);
+
+                    RaisePropertyChanged(PROP_MEMBER_NAME);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Zwraca listę kontaktów wyszukanych w telefonie.
+        /// </summary>
+        public List<SelectedMember> VisibleContacts
+        {
+            get { return _visibleContacts; }
+            private set
+            {
+                if ((_visibleContacts = value) == null)
+                    _filters.Clear();
+
+                RaisePropertyChanged(PROP_VISIBLE_CONTACTS);
+                RaisePropertyChanged(PROP_SERCH_STATE);
             }
         }
 
@@ -90,20 +135,9 @@ namespace GiveItBack.ViewModel
         public int SelectedContact { get; set; }
 
         /// <summary>
-        /// Zwraca lub ustawia nazwę wpisaną w polu tekstowym formatki.
+        /// Tworzy ViewModel dla modułu dodawania nowego uczestnika zrzuteczki.
         /// </summary>
-        public string MemberName { get; set; }
-
-        /// <summary>
-        /// Zwraca listę kontaktów wyszukanych w telefonie.
-        /// </summary>
-        public List<SelectedMember> VisibleContacts { get; private set; }
-
-        /// <summary>
-        /// Zwraca polecenie wykonywane w momencie przyciśnięcia na klawisz przeszukiwania kontaktów.
-        /// </summary>
-        public RelayCommand FindContactsCommand { get; private set; }
-
+        /// <param name="model">Model.</param>
         public AddMemberVM(AddMemberM model)
         {
             SelectedContact = -1;
@@ -114,14 +148,12 @@ namespace GiveItBack.ViewModel
 
             _model = model;
             _model.GetSelectedMember = GetMemberInfo;
-
-            FindContactsCommand = new RelayCommand(FindContacts);
         }
 
         #region Private Methods
 
         /// <summary>
-        /// 
+        /// Zbiera dane wpisne na formatce i przekazuje je do modelu.
         /// </summary>
         private void GetMemberInfo()
         {
@@ -130,29 +162,21 @@ namespace GiveItBack.ViewModel
                 if (!string.IsNullOrEmpty(MemberName))
                     _model.GoToValuePage(new SelectedMember() { Name = MemberName });
                 else
-                    MessageBox.Show("Nie wpisano żadnej nazwy nowego uczestnika.", "Uwaga", MessageBoxButton.OK);
+                    MessageBox.Show(AppResources.strNonSelectedMember, AppResources.strAddMemWarTopic, MessageBoxButton.OK);
             }
             else
             {
                 if (SelectedContact != -1)
                     _model.GoToValuePage(VisibleContacts[SelectedContact]);
                 else
-                    MessageBox.Show("Nie wybrano żadnego kontaktu.", "Uwaga", MessageBoxButton.OK);
+                    MessageBox.Show(AppResources.strNonSelectedContact, AppResources.strAddMemWarTopic, MessageBoxButton.OK);
             }
         }
 
         /// <summary>
-        /// 
+        /// Rozpoczyna przeszukiwanie kontaktów.
         /// </summary>
-        private void FindContacts()
-        {
-            FilterContacts(MemberName);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="filter"></param>
+        /// <param name="filter">Filt dla nazwy kontaktu.</param>
         private void FilterContacts(string filter)
         {
             if (!string.IsNullOrEmpty(filter))
@@ -165,7 +189,7 @@ namespace GiveItBack.ViewModel
             }
             else
             {
-                VisibleContacts.Clear();
+                VisibleContacts = null;
             }
         }
 

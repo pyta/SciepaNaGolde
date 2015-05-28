@@ -142,4 +142,8 @@
     <value>Trwa wyszukiwanie kontaktów...</value>
     <comment>Etykietka wyświetlana podczas przeszukiwania kontaktów.</comment>
   </data>
+  <data name="strNoContactsFound" xml:space="preserve">
+    <value>Nie znaleziono żadnych kontaktów.</value>
+    <comment>Etykietka wyświetlana w sytacji, w której nie znaleziono kontaktów o zadanym filtrze.</comment>
+  </data>
 </root>

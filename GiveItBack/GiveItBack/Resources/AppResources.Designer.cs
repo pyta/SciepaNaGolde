@@ -97,6 +97,15 @@ namespace GiveItBack.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Niepoprawna nazwa nowego uczestnika.
+        /// </summary>
+        public static string strAddMemWarTopic {
+            get {
+                return ResourceManager.GetString("strAddMemWarTopic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trwa wyszukiwanie kontaktów....
         /// </summary>
         public static string strContactsSearching {
@@ -106,11 +115,47 @@ namespace GiveItBack.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Liczba znalezionych kontaktów.
+        /// </summary>
+        public static string strFoundContactsCount {
+            get {
+                return ResourceManager.GetString("strFoundContactsCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Historia.
         /// </summary>
         public static string strHistory {
             get {
                 return ResourceManager.GetString("strHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie znaleziono żadnych kontaktów..
+        /// </summary>
+        public static string strNoContactsFound {
+            get {
+                return ResourceManager.GetString("strNoContactsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie wybrano żadnego kontaktu..
+        /// </summary>
+        public static string strNonSelectedContact {
+            get {
+                return ResourceManager.GetString("strNonSelectedContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie wprowadzono żadnej nazwy nowego uczestnika..
+        /// </summary>
+        public static string strNonSelectedMember {
+            get {
+                return ResourceManager.GetString("strNonSelectedMember", resourceCulture);
             }
         }
         

@@ -51,8 +51,8 @@ namespace GiveItBack.Model.Pages
         {
             var bar = new ApplicationBar();
 
-            ApplicationBarIconButton selectMemberButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-            selectMemberButton.Text = AppResources.WorkBarAddMember;
+            ApplicationBarIconButton selectMemberButton = new ApplicationBarIconButton(new Uri("/Assets/Images/AppBar/check.png", UriKind.Relative));
+            selectMemberButton.Text = AppResources.strWorkBarSelectMember;
             selectMemberButton.Click += selectMemberButton_Click;
             bar.Buttons.Add(selectMemberButton);
 

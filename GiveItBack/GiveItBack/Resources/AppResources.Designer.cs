@@ -160,6 +160,15 @@ namespace GiveItBack.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wybierz uczestnika.
+        /// </summary>
+        public static string strWorkBarSelectMember {
+            get {
+                return ResourceManager.GetString("strWorkBarSelectMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dodaj uczestnika.
         /// </summary>
         public static string WorkBarAddMember {

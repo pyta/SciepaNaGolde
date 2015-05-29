@@ -162,4 +162,8 @@
     <value>Nie wprowadzono żadnej nazwy nowego uczestnika.</value>
     <comment>Treść komunikatu wyświetlana w sytuacji, w której nazwę uczestnika wprowadza sie bezpośrednio z klawaitury, a mimo to nazwa jest pusta.</comment>
   </data>
+  <data name="strWorkBarSelectMember" xml:space="preserve">
+    <value>Wybierz uczestnika</value>
+    <comment>Etykietka wyświetlana pod przyciskiem w oknie AddMember.</comment>
+  </data>
 </root>

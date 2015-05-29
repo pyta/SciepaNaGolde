@@ -12,13 +12,26 @@ namespace Tools
     {
         #region Private Members
 
+        /// <summary>
+        /// Prywatny obiekt zarządzający kontaktami telefonu.
+        /// </summary>
         private Contacts _contacts = new Contacts();
+
+        /// <summary>
+        /// Prywatna lista z wprowadzanymi filtrami. Używana do uwzględniania ostatniego wpisu przy wyszukiwaniu.
+        /// </summary>
         private List<string> _filters = new List<string>();
 
+        /// <summary>
+        /// Prywatna metoda, która zostaje wywołana po przeszukaniu kontaków. Jako argument przyjmuje listę z wynikami wyszukiwania.
+        /// </summary>
         private Action<List<SelectedMember>> SearchResult { get; set; }
 
         #endregion
 
+        /// <summary>
+        /// Zwraca informację o tym czy zostało rozpoczęte jakieś wyszukiwanie.
+        /// </summary>
         public bool SeachInit { get { return _filters.Any(); } }
 
         /// <summary>
@@ -26,6 +39,10 @@ namespace Tools
         /// </summary>
         public bool Searching { get; private set; }
 
+        /// <summary>
+        /// Tworzy obiekt do przeszukiwania kontaktów.
+        /// </summary>
+        /// <param name="searchResult">Metoda wywoływana po zakończeniu przeszukiwnia.</param>
         public ContactsSearcher(Action<List<SelectedMember>> searchResult)
         {
             SearchResult = searchResult;
@@ -33,6 +50,10 @@ namespace Tools
             _contacts.SearchCompleted += _contacts_SearchCompleted;
         }
 
+        /// <summary>
+        /// Rozpoczyna proces przeszukiwania kontaktów, które kończy się wywołaniem metody przekazanej w konstruktorze klasy.
+        /// </summary>
+        /// <param name="filter">Zawężenie nazwy kontaktu.</param>
         public void StartSearching(string filter)
         {
             if (!string.IsNullOrEmpty(filter))
@@ -48,9 +69,15 @@ namespace Tools
             }
         }
 
+        /// <summary>
+        /// Czyści dane przeszukiwania.
+        /// </summary>
         public void ClearSearchData()
         {
             _filters.Clear();
+
+            if (Searching)
+                Searching = false;
         }
 
         #region Private Methods
@@ -80,6 +107,11 @@ namespace Tools
 
         #endregion
 
+        #region Events
+
+        /// <summary>
+        /// Zdarzenie wywoływane po zakończeniu przeszukiwnia kontaktów.
+        /// </summary>
         private void _contacts_SearchCompleted(object sender, ContactsSearchEventArgs e)
         {
             if (e.State.ToString() == _filters.Last())
@@ -90,5 +122,7 @@ namespace Tools
                 SearchResult(result);
             }
         }
+
+        #endregion
     }
 }

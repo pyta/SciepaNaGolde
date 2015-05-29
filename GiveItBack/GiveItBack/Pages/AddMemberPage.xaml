@@ -14,7 +14,7 @@
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
         <CheckBox Content="Wybierz z kontaktów" VerticalAlignment="Top" IsChecked="{Binding AddFromContacts,Mode=TwoWay, UpdateSourceTrigger=Explicit}" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
         <!-- Kontrolka do filtrowania kontaków, lub do wpisywania użytkownika z palca. -->
-        <TextBox x:Name="_txtName" Height="72" Margin="0,77,0,0" TextWrapping="Wrap" Text="{Binding MemberName, Mode=TwoWay, UpdateSourceTrigger=Explicit}"  VerticalAlignment="Top" TextChanged="_txtName_TextChanged" TabIndex="1"/>        
+        <TextBox x:Name="_txtName" Height="72" Margin="0,77,0,0" TextWrapping="Wrap" Text="{Binding MemberName, Mode=TwoWay, UpdateSourceTrigger=Explicit}"  VerticalAlignment="Top" TextChanged="_txtName_TextChanged" TabIndex="1"/>
         <!-- Labelka informująca o stanie przeszukiwania kontaków. -->
         <TextBlock Margin="0,154,0,0" TextWrapping="Wrap" Text="{Binding SearchState}" VerticalAlignment="Top" TextAlignment="Center" Height="27"/>
         <!-- Lista z wynikami przeszukiwania kontaków. -->

@@ -20,11 +20,8 @@ namespace GiveItBack.ViewModel
     {
         #region Private Members
 
+        private ContactsSearcher _contactsSearch;
         private AddMemberM _model;
-        private Contacts _cons;
-
-        private List<string> _filters = new List<string>();
-        private bool _search;
 
         /// <summary>
         /// Prywatna lista zawierająca wynik przeszukiwania kontaktów.
@@ -55,9 +52,9 @@ namespace GiveItBack.ViewModel
         {
             get
             {
-                if (AddFromContacts && _filters.Any())
+                if (AddFromContacts && _contactsSearch.SeachInit)
                 {
-                    if (_search)
+                    if (_contactsSearch.Searching)
                         return AppResources.strContactsSearching;
                     else
                     {
@@ -106,9 +103,9 @@ namespace GiveItBack.ViewModel
                     _memberName = value;
 
                     if (AddFromContacts)
-                        FilterContacts(_memberName);
+                        _contactsSearch.StartSearching(_memberName);
 
-                    RaisePropertyChanged(PROP_MEMBER_NAME);
+                    RaisePropertyChanged(PROP_SERCH_STATE);
                 }
             }
         }
@@ -122,7 +119,7 @@ namespace GiveItBack.ViewModel
             private set
             {
                 if ((_visibleContacts = value) == null)
-                    _filters.Clear();
+                    _contactsSearch.ClearSearchData();
 
                 RaisePropertyChanged(PROP_VISIBLE_CONTACTS);
                 RaisePropertyChanged(PROP_SERCH_STATE);
@@ -143,14 +140,25 @@ namespace GiveItBack.ViewModel
             SelectedContact = -1;
             VisibleContacts = new List<SelectedMember>();
 
-            _cons = new Contacts();
-            _cons.SearchCompleted += cons_SearchCompleted;
+            _contactsSearch = new ContactsSearcher(CollectSearchResult);
 
             _model = model;
             _model.GetSelectedMember = GetMemberInfo;
         }
 
         #region Private Methods
+
+        /// <summary>
+        /// Ustawia kolekcję wyszukanych kontaktów.
+        /// </summary>
+        /// <param name="members">Lista znalezionych kontaktów.</param>
+        private void CollectSearchResult(List<SelectedMember> members)
+        {
+            VisibleContacts = members;
+
+            RaisePropertyChanged(PROP_VISIBLE_CONTACTS);
+            RaisePropertyChanged(PROP_SERCH_STATE);
+        }
 
         /// <summary>
         /// Zbiera dane wpisne na formatce i przekazuje je do modelu.
@@ -170,70 +178,6 @@ namespace GiveItBack.ViewModel
                     _model.GoToValuePage(VisibleContacts[SelectedContact]);
                 else
                     MessageBox.Show(AppResources.strNonSelectedContact, AppResources.strAddMemWarTopic, MessageBoxButton.OK);
-            }
-        }
-
-        /// <summary>
-        /// Rozpoczyna przeszukiwanie kontaktów.
-        /// </summary>
-        /// <param name="filter">Filt dla nazwy kontaktu.</param>
-        private void FilterContacts(string filter)
-        {
-            if (!string.IsNullOrEmpty(filter))
-            {
-                _filters.Add(filter);
-                _search = true;
-                _cons.SearchAsync(filter, FilterKind.DisplayName, filter);
-
-                RaisePropertyChanged(PROP_SERCH_STATE);
-            }
-            else
-            {
-                VisibleContacts = null;
-            }
-        }
-
-        /// <summary>
-        /// Tworzy z wyniku przeszukiwania kontaktów listę użytkowników do wybrania.
-        /// </summary>
-        /// <param name="e">Argument zdarzenia zakończenia przeszukiwania kontaktów.</param>
-        /// <returns></returns>
-        private List<SelectedMember> CreateMembersList(ContactsSearchEventArgs e)
-        {
-            List<SelectedMember> result = new List<SelectedMember>();
-
-            foreach (var c in e.Results)
-            {
-                SelectedMember m = new SelectedMember()
-                {
-                    Name = c.DisplayName,
-                    Avatar = ToolsKit.GetImageFromConcat(c)
-                };
-
-                result.Add(m);
-            }
-
-            return result;
-        }
-
-        #endregion
-
-        #region Events
-
-        /// <summary>
-        /// Zdarzenie wywołane po zakończeniu przeszukiwania kontaktów.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cons_SearchCompleted(object sender, ContactsSearchEventArgs e)
-        {
-            if (e.State.ToString() == _filters.Last())
-            {
-                VisibleContacts = CreateMembersList(e);
-                _search = false;
-
-                RaisePropertyChanged(PROP_VISIBLE_CONTACTS);
-                RaisePropertyChanged(PROP_SERCH_STATE);
             }
         }
 

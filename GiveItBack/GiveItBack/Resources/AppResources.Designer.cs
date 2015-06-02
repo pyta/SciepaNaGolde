@@ -133,6 +133,24 @@ namespace GiveItBack.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wprowadzoną wartość ciężko zmienić na złotówki....
+        /// </summary>
+        public static string strInvalidValue {
+            get {
+                return ResourceManager.GetString("strInvalidValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Niepoprawna wartość.
+        /// </summary>
+        public static string strInvalidValueTopic {
+            get {
+                return ResourceManager.GetString("strInvalidValueTopic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nie znaleziono żadnych kontaktów..
         /// </summary>
         public static string strNoContactsFound {

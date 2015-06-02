@@ -166,4 +166,12 @@
     <value>Wybierz uczestnika</value>
     <comment>Etykietka wyświetlana pod przyciskiem w oknie AddMember.</comment>
   </data>
+  <data name="strInvalidValue" xml:space="preserve">
+    <value>Wprowadzoną wartość ciężko zmienić na złotówki...</value>
+    <comment>Etykietka wyświetlana w momencie błędu wprowadzania wkładu uczestnika zrzyteczki.</comment>
+  </data>
+  <data name="strInvalidValueTopic" xml:space="preserve">
+    <value>Niepoprawna wartość</value>
+    <comment>Etykietka wyświetlana w nagłówku z komunikatem o błędzie wartości wkładu.</comment>
+  </data>
 </root>

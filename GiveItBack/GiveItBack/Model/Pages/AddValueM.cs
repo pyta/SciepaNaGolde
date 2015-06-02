@@ -40,10 +40,7 @@ namespace GiveItBack.Model.Pages
 
         public SelectedMember Member { get; private set; }
 
-        /// <summary>
-        /// Zwraca lub ustawia wysokość wkładu wniesionego przez uczestnika zrzuteczki.
-        /// </summary>
-        public double Value { get; set; }
+        public Action GetValueInfo { get; set; }
 
         public AddValueM(IAppPage previousPage, IAppPage workPage, SelectedMember member)
             : base(previousPage)
@@ -54,30 +51,13 @@ namespace GiveItBack.Model.Pages
             Member = member;
         }
 
-        private ApplicationBar CreateBar()
-        {
-            // TODO: Utworzyć menu do zatwierdzania nowego uczestnika zrzuteczki.
-
-            var bar = new ApplicationBar();
-
-            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-            appBarButton.Text = AppResources.WorkBarAddMember;
-            appBarButton.Click += appBarButton_Click;
-            bar.Buttons.Add(appBarButton);
-
-            ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-            bar.MenuItems.Add(appBarMenuItem);
-
-            return bar;
-        }
-
-        void appBarButton_Click(object sender, EventArgs e)
+        public void GoToWorkPage(double value)
         {
             if (_workPage is WorkM)
             {
                 MemberInfo info = new MemberInfo(
                     Member.Name,
-                    Value,
+                    value,
                     ToolsKit.GetColor(),
                     Member.Avatar,
                     Member.AdditionalInfo != null ? Member.AdditionalInfo.PhoneNumber : string.Empty);
@@ -87,5 +67,31 @@ namespace GiveItBack.Model.Pages
 
             GoToPage(_workPage);
         }
+
+        #region Private Methods
+
+        private ApplicationBar CreateBar()
+        {
+            var bar = new ApplicationBar();
+
+            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/Images/AppBar/check.png", UriKind.Relative));
+            appBarButton.Text = AppResources.WorkBarAddMember;
+            appBarButton.Click += appBarButton_Click;
+            bar.Buttons.Add(appBarButton);
+
+            return bar;
+        }
+
+        #endregion
+
+        #region Events
+
+        private void appBarButton_Click(object sender, EventArgs e)
+        {
+            if (GetValueInfo != null)
+                GetValueInfo();
+        }
+
+        #endregion
     }
 }

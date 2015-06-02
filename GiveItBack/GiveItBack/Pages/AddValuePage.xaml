@@ -10,16 +10,9 @@
     d:DesignHeight="480" d:DesignWidth="480">
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
-        <TextBox Text="{Binding Value, Mode=TwoWay}" Height="72" TextWrapping="Wrap" VerticalAlignment="Top" InputScope="Number" Margin="0,144,0,0"/>
-        <StackPanel Orientation="Horizontal" Height="107" VerticalAlignment="Top">
-            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Center" Margin="10,10,0,0" Width="355" TextAlignment="Center"/>
-            <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100">
-                <Ellipse.Fill>
-                    <ImageBrush Stretch="Fill" ImageSource="{Binding Avatar}"/>
-                </Ellipse.Fill>
-            </Ellipse>
-        </StackPanel>
-        <TextBlock Margin="10,112,10,0" TextWrapping="Wrap" Text="dołożył/a się:" VerticalAlignment="Top"/>
+        <Image Height="337" VerticalAlignment="Top" Source="{Binding Avatar}" Opacity="0.8"/>
+        <TextBlock TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Margin="10,35,10,0" TextAlignment="Center" FontSize="24"/>
+        <TextBox x:Name="_txtValue" Text="{Binding ValueStr, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Height="72" TextWrapping="Wrap" VerticalAlignment="Top" InputScope="Number" Margin="0,112,0,0" TextChanged="_txtValue_TextChanged"/>
     </Grid>
 
 </UserControl>

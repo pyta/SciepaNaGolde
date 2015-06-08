@@ -18,6 +18,15 @@ namespace GiveItBack.Pages
             InitializeComponent();
         }
 
+        #region Private Methods
+
+        private void ShowKeyboard()
+        {
+            _txtValue.Focus();
+        }
+
+        #endregion
+
         #region Events
 
         private void _txtValue_TextChanged(object sender, TextChangedEventArgs e)
@@ -25,6 +34,11 @@ namespace GiveItBack.Pages
             TextBox textBox = sender as TextBox;
             BindingExpression bindingExpr = textBox.GetBindingExpression(TextBox.TextProperty);
             bindingExpr.UpdateSource();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ShowKeyboard();
         }
 
         #endregion

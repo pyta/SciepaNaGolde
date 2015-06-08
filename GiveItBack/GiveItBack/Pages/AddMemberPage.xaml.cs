@@ -21,9 +21,9 @@ namespace GiveItBack.Pages
 
         #region Private Methods
 
-        private bool ShowKeyboard()
+        private void ShowKeyboard()
         {
-            return _txtName.Focus();
+            _txtName.Focus();
         }
 
         #endregion
@@ -49,6 +49,11 @@ namespace GiveItBack.Pages
             CheckBox checkBox = sender as CheckBox;
             BindingExpression bindingExpr = checkBox.GetBindingExpression(CheckBox.IsCheckedProperty);
             bindingExpr.UpdateSource();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ShowKeyboard();
         }
 
         #endregion

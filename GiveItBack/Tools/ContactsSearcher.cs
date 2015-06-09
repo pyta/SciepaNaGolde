@@ -114,7 +114,7 @@ namespace Tools
         /// </summary>
         private void _contacts_SearchCompleted(object sender, ContactsSearchEventArgs e)
         {
-            if (e.State.ToString() == _filters.Last())
+            if (_filters.Any() && e.State.ToString() == _filters.Last())
             {
                 Searching = false;
 

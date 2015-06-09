@@ -19,6 +19,16 @@ namespace GiveItBack.ViewModel
 
         public List<MemberInfo> Members { get { return _model.Members; } }
 
+        /// <summary>
+        /// Zwraca liczbę uczestników.
+        /// </summary>
+        public int MembersCount { get { return Members.Count; } }
+
+        /// <summary>
+        /// Zwraca całkowity wkład wniesiony przez wszystkich uczestników.
+        /// </summary>
+        public double TotalValue { get { return Members.Sum(x => x.Value); } }
+
         public MembersVM(MembersM model)
         {
             _model = model;

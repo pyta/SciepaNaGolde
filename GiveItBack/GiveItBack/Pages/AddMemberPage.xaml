@@ -12,7 +12,7 @@
     d:DesignHeight="480" d:DesignWidth="480" Loaded="UserControl_Loaded">
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
-        <CheckBox Content="Wybierz z kontaktów" VerticalAlignment="Top" IsChecked="{Binding AddFromContacts,Mode=TwoWay, UpdateSourceTrigger=Explicit}" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+        <CheckBox Content="Wybierz z kontaktów" VerticalAlignment="Top" IsChecked="{Binding AddFromContacts,Mode=TwoWay, UpdateSourceTrigger=Explicit}" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" Margin="0,0,155,0"/>
         <!-- Kontrolka do filtrowania kontaków, lub do wpisywania użytkownika z palca. -->
         <TextBox x:Name="_txtName" Height="72" Margin="0,77,0,0" TextWrapping="Wrap" Text="{Binding MemberName, Mode=TwoWay, UpdateSourceTrigger=Explicit}"  VerticalAlignment="Top" TextChanged="_txtName_TextChanged" TabIndex="1"/>
         <!-- Labelka informująca o stanie przeszukiwania kontaków. -->
@@ -37,6 +37,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button x:Name="_btnKeyboard" Content="Ukryj" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" Click="_btnKeyboard_Click"/>
     </Grid>
 
 </UserControl>

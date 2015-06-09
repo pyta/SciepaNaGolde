@@ -21,9 +21,20 @@ namespace GiveItBack.Pages
 
         #region Private Methods
 
+        /// <summary>
+        /// Przenosi fokus na kontrolkę tekstową pokazując klawiaturę.
+        /// </summary>
         private void ShowKeyboard()
         {
             _txtName.Focus();
+        }
+
+        /// <summary>
+        /// Przenosi fokus na główną formatkę ukrywając klawiaturę.
+        /// </summary>
+        private void HideKeyboard()
+        {
+            _btnKeyboard.Focus();
         }
 
         #endregion
@@ -54,6 +65,11 @@ namespace GiveItBack.Pages
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             ShowKeyboard();
+        }
+
+        private void _btnKeyboard_Click(object sender, RoutedEventArgs e)
+        {
+            HideKeyboard();
         }
 
         #endregion

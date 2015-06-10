@@ -16,9 +16,7 @@ namespace Common
         public string PhoneNumber { get; private set; }
         public double Value { get; private set; }
 
-        public string ValueStr { get { return string.Format("{0:0.00}", Value); } }
-
-        public Brush Brush 
+        public Brush Brush
         {
             get { return new SolidColorBrush(UserColor); }
         }

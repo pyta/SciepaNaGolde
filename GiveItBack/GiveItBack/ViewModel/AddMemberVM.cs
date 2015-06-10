@@ -38,7 +38,7 @@ namespace GiveItBack.ViewModel
         /// </summary>
         private bool _addFromContacts = true;
 
-        private const string PROP_SERCH_STATE = "SearchState";
+        private const string PROP_SEARCH_STATE = "SearchState";
         private const string PROP_ADD_FOM_CONTACTS = "AddFromContacts";
         private const string PROP_MEMBER_NAME = "MemberName";
         private const string PROP_VISIBLE_CONTACTS = "VisibleContacts";
@@ -105,7 +105,7 @@ namespace GiveItBack.ViewModel
                     if (AddFromContacts)
                         _contactsSearch.StartSearching(_memberName);
 
-                    RaisePropertyChanged(PROP_SERCH_STATE);
+                    RaisePropertyChanged(PROP_SEARCH_STATE);
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace GiveItBack.ViewModel
                     _contactsSearch.ClearSearchData();
 
                 RaisePropertyChanged(PROP_VISIBLE_CONTACTS);
-                RaisePropertyChanged(PROP_SERCH_STATE);
+                RaisePropertyChanged(PROP_SEARCH_STATE);
             }
         }
 
@@ -157,7 +157,7 @@ namespace GiveItBack.ViewModel
             VisibleContacts = members;
 
             RaisePropertyChanged(PROP_VISIBLE_CONTACTS);
-            RaisePropertyChanged(PROP_SERCH_STATE);
+            RaisePropertyChanged(PROP_SEARCH_STATE);
         }
 
         /// <summary>

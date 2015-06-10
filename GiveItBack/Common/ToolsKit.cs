@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Common.Interfaces;
 using Microsoft.Phone.UserData;
 
 namespace Common
@@ -35,6 +36,13 @@ namespace Common
             // TODO: Ogarnąć kolory.
 
             return Colors.Blue;
+        }
+
+        public static IMenuIconsSet GetMenuIconsSet()
+        {
+            // TODO: Ogarnąć zbiory ikonek.
+
+            return new CustomMenuIconsSet();
         }
     }
 }

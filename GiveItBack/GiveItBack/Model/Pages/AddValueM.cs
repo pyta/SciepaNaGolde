@@ -18,30 +18,45 @@ namespace GiveItBack.Model.Pages
     {
         #region Private Members
 
+        /// <summary>
+        /// Prywatny obiekt przechowujący menu wyświetlane w module dodawania wysokości wkładu.
+        /// </summary>
         private ApplicationBar _bar;
+
+        /// <summary>
+        /// Prywatna zmienna przechowująca główny obaszar roboczy z listą wszystkich uczestników.
+        /// </summary>
         private IAppPage _workPage;
-        private SelectedMember _member;
 
         #endregion
 
         public override Control Content
         {
-            get 
+            get
             {
                 var page = new AddValuePage() { DataContext = new AddValueVM(this) };
                 return base.SetDefaultPageAttributes(page);
             }
         }
 
-        public override ApplicationBar ApplicationBar
-        {
-            get { return _bar; }
-        }
+        public override ApplicationBar ApplicationBar { get { return _bar; } }
 
+        /// <summary>
+        /// Zwraca uczestnika.
+        /// </summary>
         public SelectedMember Member { get; private set; }
 
+        /// <summary>
+        /// Zwraca lub ustawia metodę wywoływaną w chwili użycia przycisku zatwierdzającego w menu z poziomu GUI.
+        /// </summary>
         public Action GetValueInfo { get; set; }
 
+        /// <summary>
+        /// Tworzy model modułu odpowiedzialnego za wprowadzanie wysokości wkładu.
+        /// </summary>
+        /// <param name="previousPage">Poprzednia strona aplikacji (wybieranie użytkownika).</param>
+        /// <param name="workPage">Główna strona robocza z listą wszystkich uczestników.</param>
+        /// <param name="member">Uczestnik wybrany na poprzedniej stronie.</param>
         public AddValueM(IAppPage previousPage, IAppPage workPage, SelectedMember member)
             : base(previousPage)
         {
@@ -51,6 +66,10 @@ namespace GiveItBack.Model.Pages
             Member = member;
         }
 
+        /// <summary>
+        /// Przechodzi do głównego okna roboczego z listą wszystkich dodanych użytkowników jednocześnie dodając nowego uczestnika.
+        /// </summary>
+        /// <param name="value">Wysokość wkładu uczestnika.</param>
         public void GoToWorkPage(double value)
         {
             if (_workPage is WorkM)
@@ -70,23 +89,39 @@ namespace GiveItBack.Model.Pages
 
         #region Private Methods
 
+        /// <summary>
+        /// Tworzy menu modułu dodawania wysokości wkładu uczestnika.
+        /// </summary>
+        /// <returns></returns>
         private ApplicationBar CreateBar()
         {
-            var bar = new ApplicationBar();
+            IMenuIconsSet icons = ToolsKit.GetMenuIconsSet();
 
-            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/Images/AppBar/check.png", UriKind.Relative));
-            appBarButton.Text = AppResources.WorkBarAddMember;
-            appBarButton.Click += appBarButton_Click;
-            bar.Buttons.Add(appBarButton);
+            var bar = new ApplicationBar();
+            bar.Buttons.Add(CreateSelectValueButton(icons));
 
             return bar;
+        }
+
+        /// <summary>
+        /// Tworzy przycisk menu do zatwierdzania wyboru nowego uczestnika zrzuty.
+        /// </summary>
+        /// <param name="icons">Obiekt odpowiedzialny za tworzenie schematów ikon.</param>
+        /// <returns></returns>
+        private ApplicationBarIconButton CreateSelectValueButton(IMenuIconsSet icons)
+        {
+            ApplicationBarIconButton button = new ApplicationBarIconButton(new Uri(icons.CheckIcon, UriKind.Relative));
+            button.Text = AppResources.strConfirmValue;
+            button.Click += selectValueButton_Click;
+
+            return button;
         }
 
         #endregion
 
         #region Events
 
-        private void appBarButton_Click(object sender, EventArgs e)
+        private void selectValueButton_Click(object sender, EventArgs e)
         {
             if (GetValueInfo != null)
                 GetValueInfo();

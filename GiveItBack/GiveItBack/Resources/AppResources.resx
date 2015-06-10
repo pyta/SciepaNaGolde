@@ -174,4 +174,8 @@
     <value>Niepoprawna wartość</value>
     <comment>Etykietka wyświetlana w nagłówku z komunikatem o błędzie wartości wkładu.</comment>
   </data>
+  <data name="strConfirmValue" xml:space="preserve">
+    <value>Zatwierdź wysokość wkładu</value>
+    <comment>Etykietka wyświetlana pod przyciskiem zatwierdzania wkładu.</comment>
+  </data>
 </root>

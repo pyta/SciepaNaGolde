@@ -106,6 +106,15 @@ namespace GiveItBack.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zatwierdź wysokość wkładu.
+        /// </summary>
+        public static string strConfirmValue {
+            get {
+                return ResourceManager.GetString("strConfirmValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trwa wyszukiwanie kontaktów....
         /// </summary>
         public static string strContactsSearching {

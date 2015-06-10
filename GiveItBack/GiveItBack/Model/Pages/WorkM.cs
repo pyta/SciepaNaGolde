@@ -18,9 +18,10 @@ namespace GiveItBack.Model.Pages
         #region Private Members
 
         private ApplicationBar _bar;
-        public List<MemberInfo> MembersInfo { get; private set; }
 
         #endregion
+
+        public List<MemberInfo> MembersInfo { get; private set; }
 
         public override Control Content
         {

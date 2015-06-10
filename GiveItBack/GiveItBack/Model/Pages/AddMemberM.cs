@@ -60,6 +60,26 @@ namespace GiveItBack.Model.Pages
             GoToPage(new AddValueM(this, PreviousPage, member));
         }
 
+        /// <summary>
+        /// Sprawdza czy istnieje już na liście użytkownik o takiej samej nazwie.
+        /// </summary>
+        /// <param name="member">Wybrany użytkownik.</param>
+        /// <returns></returns>
+        public bool CanAddMember(SelectedMember member)
+        {
+            if (PreviousPage is WorkM)
+            {
+                return !((WorkM)PreviousPage)
+                    .MembersInfo
+                        .Where(x => x.Name.ToLower().Trim() == member.Name.ToLower().Trim())
+                            .Any();
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         #region Private Methods
 
         /// <summary>

@@ -178,4 +178,8 @@
     <value>Zatwierdź wysokość wkładu</value>
     <comment>Etykietka wyświetlana pod przyciskiem zatwierdzania wkładu.</comment>
   </data>
+  <data name="strMemberAlreadyExist" xml:space="preserve">
+    <value>Wybrany uczestnik już dał coś od siebie.</value>
+    <comment>Etykietka wyświetlana w momencie dodania tego samego uczestnika do zrzuty.</comment>
+  </data>
 </root>

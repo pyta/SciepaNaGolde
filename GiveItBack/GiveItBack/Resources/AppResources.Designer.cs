@@ -160,6 +160,15 @@ namespace GiveItBack.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wybrany uczestnik już dał coś od siebie..
+        /// </summary>
+        public static string strMemberAlreadyExist {
+            get {
+                return ResourceManager.GetString("strMemberAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nie znaleziono żadnych kontaktów..
         /// </summary>
         public static string strNoContactsFound {

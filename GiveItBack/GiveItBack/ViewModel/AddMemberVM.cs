@@ -165,20 +165,43 @@ namespace GiveItBack.ViewModel
         /// </summary>
         private void GetMemberInfo()
         {
-            if (!AddFromContacts)
+            string message;
+            if (!Validate(out message))
             {
-                if (!string.IsNullOrEmpty(MemberName))
-                    _model.GoToValuePage(new SelectedMember() { Name = MemberName });
-                else
-                    MessageBox.Show(AppResources.strNonSelectedMember, AppResources.strAddMemWarTopic, MessageBoxButton.OK);
+                MessageBox.Show(message, AppResources.strAddMemWarTopic, MessageBoxButton.OK);
             }
             else
             {
-                if (SelectedContact != -1)
-                    _model.GoToValuePage(VisibleContacts[SelectedContact]);
+                SelectedMember newMember = AddFromContacts ? VisibleContacts[SelectedContact] : new SelectedMember() { Name = MemberName };
+
+                if (_model.CanAddMember(newMember))
+                    _model.GoToValuePage(newMember);
                 else
-                    MessageBox.Show(AppResources.strNonSelectedContact, AppResources.strAddMemWarTopic, MessageBoxButton.OK);
+                    MessageBox.Show(AppResources.strMemberAlreadyExist, AppResources.strAddMemWarTopic, MessageBoxButton.OK);
             }
+        }
+
+        /// <summary>
+        /// Sprawdza poprawność wybranych danych.
+        /// </summary>
+        /// <param name="message">Komunikat wyjściowy o błędach.</param>
+        /// <returns>Zwraca true jeżeli walidacja przebiegnie bez problemów.</returns>
+        private bool Validate(out string message)
+        {
+            message = string.Empty;
+
+            if (!AddFromContacts)
+            {
+                if (string.IsNullOrEmpty(MemberName))
+                    message = AppResources.strNonSelectedMember;
+            }
+            else
+            {
+                if (SelectedContact == -1)
+                    message = AppResources.strNonSelectedContact;
+            }
+
+            return string.IsNullOrEmpty(message);
         }
 
         #endregion

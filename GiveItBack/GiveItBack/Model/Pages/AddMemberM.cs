@@ -83,7 +83,7 @@ namespace GiveItBack.Model.Pages
         /// <returns></returns>
         private ApplicationBarIconButton CreateSelectMemberButton(IMenuIconsSet icons)
         {
-            ApplicationBarIconButton button = new ApplicationBarIconButton(new Uri(icons.AddIcon, UriKind.Relative));
+            ApplicationBarIconButton button = new ApplicationBarIconButton(new Uri(icons.CheckIcon, UriKind.Relative));
             button.Text = AppResources.strWorkBarSelectMember;
             button.Click += selectMemberButton_Click;
 

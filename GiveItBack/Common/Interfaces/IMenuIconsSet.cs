@@ -12,5 +12,15 @@ namespace Common.Interfaces
         /// Zwraca ścieżkę do ikony dodawania.
         /// </summary>
         string AddIcon { get; }
+
+        /// <summary>
+        /// Zwraca ścieżkę do ikony zatwierdzającej.
+        /// </summary>
+        string CheckIcon { get; }
+
+        /// <summary>
+        /// Zwraca ścieżkę do ikony anulowania.
+        /// </summary>
+        string CancelIcon { get; }
     }
 }

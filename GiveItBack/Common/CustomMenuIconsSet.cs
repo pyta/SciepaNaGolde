@@ -11,7 +11,17 @@ namespace Common
     {
         public string AddIcon
         {
+            get { return "/Assets/Images/AppBar/add.png"; }
+        }
+
+        public string CheckIcon
+        {
             get { return "/Assets/Images/AppBar/check.png"; }
+        }
+
+        public string CancelIcon
+        {
+            get { return "/Assets/Images/AppBar/cancel.png"; }
         }
     }
 }

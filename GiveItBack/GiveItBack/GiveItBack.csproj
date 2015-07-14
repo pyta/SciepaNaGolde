@@ -104,6 +104,7 @@
     <Compile Include="Model\Pages\FundraisingM.cs" />
     <Compile Include="Model\Pages\HistoryM.cs" />
     <Compile Include="Model\Pages\MembersM.cs" />
+    <Compile Include="Model\Pages\ServiceTestM.cs" />
     <Compile Include="Model\Pages\StartM.cs" />
     <Compile Include="Model\Pages\WelcomeM.cs" />
     <Compile Include="Model\Pages\WorkM.cs" />
@@ -131,6 +132,9 @@
     <Compile Include="Pages\MembersPage.xaml.cs">
       <DependentUpon>MembersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ServiceTestPage.xaml.cs">
+      <DependentUpon>ServiceTestPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
@@ -146,6 +150,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\GiveItBackService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AboutVM.cs" />
     <Compile Include="ViewModel\AddMemberVM.cs" />
     <Compile Include="ViewModel\AppVM.cs" />
@@ -153,6 +162,7 @@
     <Compile Include="ViewModel\HistoryVM.cs" />
     <Compile Include="ViewModel\AddValueVM.cs" />
     <Compile Include="ViewModel\MembersVM.cs" />
+    <Compile Include="ViewModel\ServiceTestVM.cs" />
     <Compile Include="ViewModel\StartVM.cs" />
     <Compile Include="ViewModel\Locator\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WelcomeVM.cs" />
@@ -191,6 +201,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ServiceTestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -210,6 +224,26 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\GiveItBackService\GiveItBack.GiveItBackService.ContributionModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GiveItBackService\GiveItBack.GiveItBackService.FundRaisingModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GiveItBackService\GiveItBack.GiveItBackService.MembersModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GiveItBackService\MainService.wsdl" />
+    <None Include="Service References\GiveItBackService\MainService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GiveItBackService\MainService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GiveItBackService\MainService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
@@ -234,6 +268,13 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\GiveItBackService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\GiveItBackService\configuration.svcinfo" />
+    <None Include="Service References\GiveItBackService\configuration91.svcinfo" />
+    <None Include="Service References\GiveItBackService\MainService.disco" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.pl-PL.resx" />
@@ -321,7 +362,12 @@
       <Name>Tools</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GiveItBackService\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

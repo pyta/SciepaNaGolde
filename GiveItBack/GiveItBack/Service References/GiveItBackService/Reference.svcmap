@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="19ccc07a-e1d2-45e1-8e97-a3af495721f6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://giveitback.somee.com/GiveItBackService/MainService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MainService.xsd" MetadataType="Schema" ID="6c65b898-8b50-4f92-9552-8c49e8890240" SourceId="1" SourceUrl="http://giveitback.somee.com/GiveItBackService/MainService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MainService.wsdl" MetadataType="Wsdl" ID="2eddcf53-4cd4-4311-b449-71c76e72b00a" SourceId="1" SourceUrl="http://giveitback.somee.com/GiveItBackService/MainService.svc?wsdl" />
+    <MetadataFile FileName="MainService1.xsd" MetadataType="Schema" ID="bff8aa35-eed3-4c56-baa2-09769bcb6379" SourceId="1" SourceUrl="http://giveitback.somee.com/GiveItBackService/MainService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MainService.disco" MetadataType="Disco" ID="4e2d98c8-f753-4fae-8760-bbfa8791a61d" SourceId="1" SourceUrl="http://giveitback.somee.com/GiveItBackService/MainService.svc?disco" />
+    <MetadataFile FileName="MainService2.xsd" MetadataType="Schema" ID="f293c80b-b1dc-4e74-9806-f64cd0105077" SourceId="1" SourceUrl="http://giveitback.somee.com/GiveItBackService/MainService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

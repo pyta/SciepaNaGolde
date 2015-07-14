@@ -34,5 +34,11 @@ namespace GiveItBack.Model.Pages
         { 
         
         }
+
+        public void GoToTestService()
+        {
+            var serviceTest = new ServiceTestM(base.PreviousPage);
+            base.GoToPage(serviceTest);
+        }
     }
 }

@@ -10,6 +10,7 @@
     d:DesignHeight="480" d:DesignWidth="480">
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
-        <TextBlock Margin="10" TextWrapping="Wrap" Text="O autorach" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="{Binding Header}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Service Test" HorizontalAlignment="Left" Margin="146,398,0,0" VerticalAlignment="Top" Width="192" Command="{Binding ShowServiceTest}"/>
     </Grid>
 </UserControl>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GiveItBack.Model.Pages;
+using GalaSoft.MvvmLight.Command;
 
 namespace GiveItBack.ViewModel
 {
@@ -19,9 +20,12 @@ namespace GiveItBack.ViewModel
 
         #endregion
 
+        public RelayCommand ShowServiceTest { get; private set; }
+
         public AboutVM(AboutM model)
         {
             _model = model;
+            ShowServiceTest = new RelayCommand(_model.GoToTestService);
         }
     }
 }
